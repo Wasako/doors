@@ -8,12 +8,20 @@ public class Flocking : MonoBehaviour {
     int neighbourCount = 0;
     GameObject[] agentArray;
     public float flockingRadius;
+    Vector2 velocityVector;
+    float speed = 20;
     void Start () {
 	
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        Vector2 alignment = computeAlignment();
+        Vector2 cohesion = computeCohesion();
+        Vector2 separation = computeSeparation();
+        velocityVector = (alignment + cohesion + separation) * speed;
+        gameObject.GetComponent<Rigidbody2D>().velocity = velocityVector;
+
         
 	}
     public Vector2 computeAlignment()
