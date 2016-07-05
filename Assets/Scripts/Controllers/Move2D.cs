@@ -9,6 +9,8 @@ public class Move2D : MonoBehaviour {
     public float endJumpTime = 1;
     public bool isMoving = false;
 
+
+
     public bool QuickSandFalling = false;
 
 	void Update () {
