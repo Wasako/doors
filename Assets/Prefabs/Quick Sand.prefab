@@ -11,7 +11,7 @@ GameObject:
   - 114: {fileID: 11452170}
   - 23: {fileID: 2340976}
   - 33: {fileID: 3326424}
-  - 61: {fileID: 6192384}
+  - 65: {fileID: 6590864}
   m_Layer: 0
   m_Name: Quick Sand
   m_TagString: Untagged
@@ -26,7 +26,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 161022}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.81, y: 2.1766102, z: -7.5703125}
+  m_LocalPosition: {x: 1.62, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -65,20 +65,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 161022}
   m_Mesh: {fileID: 4300004, guid: d6c9cb6b44f050948abeb4b84596aea7, type: 3}
---- !u!61 &6192384
-BoxCollider2D:
+--- !u!65 &6590864
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 161022}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 2, y: 2, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &11452170
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -90,6 +88,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6aa95cd863da56845ba18ed423705be4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fallingTime: 2
+  fallingSpeed: 0.05
+  minDis: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
