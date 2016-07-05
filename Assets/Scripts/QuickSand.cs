@@ -5,6 +5,8 @@ public class QuickSand : MonoBehaviour
 {
     public float fallingTime = 2f;
     Vector3 StartingColliderPosition;
+    
+
 
     void Awake()
     {
