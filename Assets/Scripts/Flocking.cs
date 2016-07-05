@@ -66,25 +66,25 @@ public class Flocking : MonoBehaviour {
     public Vector2 computeSeparation()
     {
         int neighbourCount = 0;
-        Vector2 alignmentVector = new Vector2(0, 0);
+        Vector2 separationVector = new Vector2(0, 0);
         agentArray = GameObject.FindGameObjectsWithTag("bird");
         foreach (GameObject agent in agentArray)
         {
-            if (agent == gameObject) return alignmentVector;
+            if (agent == gameObject) return separationVector;
 
 
             if (Vector2.Distance(transform.position, agent.transform.position) < flockingRadius)
             {
-                alignmentVector.x += agent.transform.position.x - transform.position.x;
-                alignmentVector.y += agent.transform.position.y - transform.position.y;
+                separationVector.x += agent.transform.position.x - transform.position.x;
+                separationVector.y += agent.transform.position.y - transform.position.y;
                 neighbourCount++;
             }
 
         }
 
-        alignmentVector /= neighbourCount;
-        alignmentVector.Normalize();
-        return alignmentVector;
+        separationVector /= neighbourCount;
+        separationVector.Normalize();
+        return separationVector;
     }
 }
 
