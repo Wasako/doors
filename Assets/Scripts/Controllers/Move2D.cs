@@ -30,10 +30,9 @@ public class Move2D : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && !jumped && !QuickSandFalling) // && jumpTime > endJumpTime)
         {
-            GetComponent<Rigidbody>().AddForce(-Physics.gravity * jumpPower);
+            GetComponent<Rigidbody>().AddForce( -Physics.gravity * jumpPower);
             jumped = true;
         }
-
 
         if (Input.GetAxis("Horizontal") != 0 && canMove)
         {
@@ -48,9 +47,9 @@ public class Move2D : MonoBehaviour
             {
                 endJumpTime += Time.deltaTime;
             }
-
+            /*
             Debug.DrawRay(transform.position + transform.up, Physics.gravity, Color.red);
-            Debug.DrawRay(transform.position, right * 10, Color.green);
+            Debug.DrawRay(transform.position, right * 10, Color.green);*/
         }
 
 

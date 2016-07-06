@@ -14,8 +14,7 @@ public class QuickySand : MonoBehaviour {
         if (coll.gameObject.tag == "Player")
             coll.gameObject.GetComponent<Move2D>().jumped = false;
 
-        centerX = GetComponent<BoxCollider>().center.x;
-        extentX = GetComponent<Renderer>().bounds.size.x;
+        Debug.Log("dsadsadsa");
     }
 
 
