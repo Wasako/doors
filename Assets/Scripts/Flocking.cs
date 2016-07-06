@@ -7,9 +7,10 @@ public class Flocking : MonoBehaviour {
     Vector2 point = new Vector2(0, 0);
     int neighbourCount = 0;
     GameObject[] agentArray;
-    public float flockingRadius;
+    public float flockingRadius = 100;
     Vector2 velocityVector;
-    float speed = 20;
+    public float speed = 1;
+    public float alignmentWeight, cohesionWeight, separationWeight;
     void Start () {
 	
 	}
@@ -19,8 +20,9 @@ public class Flocking : MonoBehaviour {
         Vector2 alignment = computeAlignment();
         Vector2 cohesion = computeCohesion();
         Vector2 separation = computeSeparation();
-        velocityVector = (alignment + cohesion + separation) * speed;
+        velocityVector = (alignment * alignmentWeight + cohesion * cohesionWeight + separation * separationWeight) * speed;
         gameObject.GetComponent<Rigidbody2D>().velocity = velocityVector;
+        //Debug.Log("final vector " + velocityVector.x + " " + velocityVector.y);
 
         
 	}
@@ -31,19 +33,22 @@ public class Flocking : MonoBehaviour {
         agentArray = GameObject.FindGameObjectsWithTag("bird");
         foreach (GameObject agent in agentArray)
         {
-            if (agent == gameObject) return alignmentVector;
+           // if (agent == gameObject) return alignmentVector;
+            //Debug.Log("distance = " + Vector2.Distance(transform.position, agent.transform.position) + " radius = " + flockingRadius);
 
 
-            if (Vector2.Distance(transform.position, agent.transform.position) < flockingRadius)
+            if  (Vector2.Distance(transform.position, agent.transform.position) < flockingRadius)
             {
                 alignmentVector += agent.GetComponent<Rigidbody2D>().velocity;
                 neighbourCount++;
+               // Debug.Log("compute alighment");
             }
-            
+           // Debug.Log("Length = " + agentArray.Length + ", neigbour = " + neighbourCount);
         }
 
         alignmentVector /= neighbourCount;
         alignmentVector.Normalize();
+       // Debug.Log("alignment vector " + alignmentVector.x + " " + alignmentVector.y);
         return alignmentVector;
     }
     public Vector2 computeCohesion()
@@ -56,19 +61,20 @@ public class Flocking : MonoBehaviour {
             if (agent == gameObject) return cohesionVector;
 
 
-            if (Vector2.Distance(transform.position, agent.transform.position) < flockingRadius)
+            if  (Vector2.Distance(transform.position, agent.transform.position) < flockingRadius)
             {
                 cohesionVector.x += agent.transform.position.x;
                 cohesionVector.y += agent.transform.position.y;
                 neighbourCount++;
+               //Debug.Log("compute cohesion");
             }
 
         }
 
         cohesionVector /= neighbourCount;
-        cohesionVector = new Vector2(cohesionVector.x - gameObject.transform.position.x, cohesionVector.x - gameObject.transform.position.x);
+        cohesionVector = new Vector2(cohesionVector.x - gameObject.transform.position.x, cohesionVector.y - gameObject.transform.position.y);
         cohesionVector.Normalize();
-        
+        Debug.Log("cohesion vector " + cohesionVector.x + " " + cohesionVector.y);
         return cohesionVector;
     }
     public Vector2 computeSeparation()
@@ -81,17 +87,20 @@ public class Flocking : MonoBehaviour {
             if (agent == gameObject) return separationVector;
 
 
-            if (Vector2.Distance(transform.position, agent.transform.position) < flockingRadius)
+            if  (Vector2.Distance(transform.position, agent.transform.position) < flockingRadius)
             {
                 separationVector.x += agent.transform.position.x - transform.position.x;
                 separationVector.y += agent.transform.position.y - transform.position.y;
                 neighbourCount++;
+              //  Debug.Log("compute separation");
             }
 
         }
 
         separationVector /= neighbourCount;
         separationVector.Normalize();
+        separationVector *= 1;
+        //Debug.Log("separation vector " + separationVector.x + " " + separationVector.y);
         return separationVector;
     }
 }
