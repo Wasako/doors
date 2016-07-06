@@ -9,6 +9,7 @@ public class Move2D : MonoBehaviour {
     public float endJumpTime = 1;
     public bool isMoving = false;
 
+    public bool jumped = false;
 
 
     public bool QuickSandFalling = false;
@@ -21,7 +22,12 @@ public class Move2D : MonoBehaviour {
             isMoving = true;
         }
         else
+        {
             isMoving = false;
+        }
+
+
+
         if (Input.GetAxis("Horizontal")!=0)
         {
             GetComponent<Rigidbody>().AddForce(right * Input.GetAxis("Horizontal") * power);
@@ -30,9 +36,10 @@ public class Move2D : MonoBehaviour {
         {
         //    isMoving = false;
         }
-        if (Input.GetButtonDown("Jump") && jumpTime > endJumpTime)
+        if (Input.GetButtonDown("Jump") && !jumped ) // && jumpTime > endJumpTime)
         {
             GetComponent<Rigidbody>().AddForce(-Physics.gravity * jumpPower);
+            jumped = true;
         }
 
         if(endJumpTime <= jumpTime)
