@@ -12,6 +12,7 @@ public class QuickSand : MonoBehaviour
     public float minDis = 0f;
     Coroutine cor, fallCor;
     float radius;
+
     void Awake()
     {
         StartingColliderPosition = GetComponent<Collider>().transform.position;
@@ -19,6 +20,10 @@ public class QuickSand : MonoBehaviour
     }
     void OnCollisionEnter(Collision coll)
     {
+        if (coll.gameObject.tag == "Player")
+            coll.gameObject.GetComponent<Move2D>().jumped = false;
+
+
         if (coll.gameObject.tag == "Player" && minDis == 0f)
             minDis = (coll.gameObject.transform.position - gameObject.transform.position).magnitude;
     }
@@ -35,6 +40,7 @@ public class QuickSand : MonoBehaviour
             {
                 if (fallCor == null)
                     fallCor = StartCoroutine(ColliderDisappear());
+
                 Invoke("ColliderDisappear", fallingTime);
                 startedFalling = true;
                 coll.gameObject.GetComponent<Move2D>().QuickSandFalling = true;
