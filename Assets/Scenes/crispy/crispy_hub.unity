@@ -111,7 +111,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1867436802}
   m_Father: {fileID: 1387820949}
@@ -246,7 +245,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.02, y: 1.51, z: -43.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -1449,7 +1447,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071067}
   m_LocalPosition: {x: 0, y: 14.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
   m_Children:
   - {fileID: 1435984331}
   - {fileID: 266179866}
@@ -1467,7 +1464,7 @@ Transform:
   - {fileID: 111401782}
   - {fileID: 1342459782}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 20
 --- !u!1001 &1301635238
 Prefab:
   m_ObjectHideFlags: 0
@@ -1735,11 +1732,10 @@ Transform:
   m_LocalRotation: {x: 0.25881907, y: 0, z: 0, w: 0.9659258}
   m_LocalPosition: {x: 0, y: 1.11, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 38249876}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!135 &1387820950
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2345,9 +2341,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1867436801}
   m_LocalRotation: {x: -0.25881907, y: 0, z: 0, w: 0.9659258}
-  m_LocalPosition: {x: 0, y: 0.09, z: -0.08}
+  m_LocalPosition: {x: 0.02, y: 0.12, z: -0.13}
   m_LocalScale: {x: 0.20238522, y: 0.20238522, z: 0.20238522}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 38249876}
   m_RootOrder: 0
@@ -2839,7 +2834,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
