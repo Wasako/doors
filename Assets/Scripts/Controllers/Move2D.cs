@@ -7,16 +7,29 @@ public class Move2D : MonoBehaviour {
     public float jumpPower = 40;
     public float jumpTime = 2;
     public float endJumpTime = 1;
+    public bool isMoving = false;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
+
+
+    public bool QuickSandFalling = false;
+
 	void Update () {
 
-        GetComponent<Rigidbody>().AddForce(right*Input.GetAxis("Horizontal")*power);
+
+        if (GetComponent<Rigidbody>().velocity.magnitude > 0.1f && !QuickSandFalling)
+        {
+            isMoving = true;
+        }
+        else
+            isMoving = false;
+        if (Input.GetAxis("Horizontal")!=0)
+        {
+            GetComponent<Rigidbody>().AddForce(right * Input.GetAxis("Horizontal") * power);
+        }
+        else
+        {
+        //    isMoving = false;
+        }
         if (Input.GetButtonDown("Jump") && jumpTime > endJumpTime)
         {
             GetComponent<Rigidbody>().AddForce(-Physics.gravity * jumpPower);
