@@ -566,7 +566,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 468698, guid: 1d66a41eb98dc474fbc5dd7d4006e5cc, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.1
+      value: 4.36
       objectReference: {fileID: 0}
     - target: {fileID: 468698, guid: 1d66a41eb98dc474fbc5dd7d4006e5cc, type: 2}
       propertyPath: m_LocalPosition.z
@@ -601,7 +601,7 @@ Prefab:
       value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 11452170, guid: 1d66a41eb98dc474fbc5dd7d4006e5cc, type: 2}
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 1d66a41eb98dc474fbc5dd7d4006e5cc, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &463679658 stripped
@@ -2247,6 +2247,8 @@ MonoBehaviour:
   jumpTime: 2
   endJumpTime: 1
   isMoving: 0
+  jumped: 0
+  canMove: 1
   QuickSandFalling: 0
 --- !u!54 &1387820948
 Rigidbody:
