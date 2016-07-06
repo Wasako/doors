@@ -4,6 +4,7 @@ using System.Collections;
 public class MovingPlatform : MonoBehaviour {
 
     public Vector3 DeltaTargetPosition = Vector3.zero;
+    public float floatingTime = 5f;
     Vector3 StartingPosition;
     float JourneyLength;
     public float speed = 1.0F;
@@ -59,8 +60,8 @@ public class MovingPlatform : MonoBehaviour {
             if (transform.position != DeltaTargetPosition + StartingPosition)
             {
                 transform.position = Vector3.Lerp(StartingPosition, DeltaTargetPosition + StartingPosition, fracJourney);
-                if (PlayerAttached)
-                    GameObject.FindGameObjectWithTag("Player").transform.position = transform.position - PlayerLocationOnPlatform;
+                if(PlayerAttached)
+                    GameObject.FindGameObjectWithTag("Player").transform.position = transform.position + PlayerLocationOnPlatform;
             }
             else
             {
