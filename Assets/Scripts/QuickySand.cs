@@ -11,8 +11,10 @@ public class QuickySand : MonoBehaviour {
     public float extentX, centerX;
     void OnCollisionEnter(Collision coll)
     {
-        centerX = GetComponent<BoxCollider>().center.x;
-        extentX = GetComponent<Renderer>().bounds.size.x;
+        if (coll.gameObject.tag == "Player")
+            coll.gameObject.GetComponent<Move2D>().jumped = false;
+
+        Debug.Log("dsadsadsa");
     }
 
 
@@ -21,7 +23,6 @@ public class QuickySand : MonoBehaviour {
     {
         while(true)
         {
-            Debug.Log("falling");
             yield return new WaitForSeconds(0.02f);
             GetComponent<BoxCollider>().center -= new Vector3(0, fallingSpeed, 0);
             GameObject player = GameObject.FindGameObjectWithTag("Player");
@@ -48,7 +49,10 @@ public class QuickySand : MonoBehaviour {
             if (Input.GetButtonDown("Jump")) // && jumpTime > endJumpTime)
             {
                 if (GetComponent<BoxCollider>().center.y < 0)
+                {
                     GetComponent<BoxCollider>().center += new Vector3(0, fallingSpeed * 5, 0);
+                   // GameObject.FindGameObjectWithTag("Player").GetComponent<Move2D>().QuickSandFalling = true;
+                }
                 else
                 {
                     GameObject.FindGameObjectWithTag("Player").GetComponent<Move2D>().QuickSandFalling = false;
@@ -61,9 +65,8 @@ public class QuickySand : MonoBehaviour {
     void TurnOnCollider()
     {
         GetComponent<BoxCollider>().center = new Vector3(0, 0, 0);
-        GetComponent<BoxCollider>().enabled = true;
+        GetComponent<BoxCollider>().enabled = true; 
         FallingCoroutine = null;
-
         StopCoroutine(falling());
 
     }
@@ -74,7 +77,6 @@ public class QuickySand : MonoBehaviour {
         {
             if (!coll.gameObject.GetComponent<Move2D>().isMoving)
             {
-                Debug.Log("STAAAY");
                 if (FallingCoroutine == null)
                     FallingCoroutine = StartCoroutine("falling");
             }
@@ -107,8 +109,9 @@ public class QuickySand : MonoBehaviour {
             {
                 GetComponent<BoxCollider>().center = new Vector3(0f, 0f, 0f);
                 GameObject.FindGameObjectWithTag("Player").GetComponent<Move2D>().QuickSandFalling = false;
-                startedFalling = false;
                 GameObject.FindGameObjectWithTag("Player").GetComponent<Move2D>().canMove = false;
+                startedFalling = false;
+
                 break;
             }
         }

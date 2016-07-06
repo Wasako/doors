@@ -25,31 +25,19 @@ public class MovingPlatform : MonoBehaviour {
     }
 
 
-    IEnumerator waitToDetach()
-    {
-        while(true)
-        {
-            yield return new WaitForSeconds(0.05f);
-
-        }
-    }
-
     void OnCollisionEnter(Collision coll)
     {
         if (coll.gameObject.tag == "Player") // && coll.gameObject.transform.position.y > gameObject.transform.position.y)
         {
+            if(coll.gameObject.GetComponent<GetSideHit>().ifTop(this.gameObject))
             coll.gameObject.GetComponent<Move2D>().jumped = false;
-            //coll.transform.SetParent(this.transform);
-            //PlayerAttached = true;
         }
     }
     void OnCollisionStay(Collision coll)
     {
         if (coll.gameObject.tag == "Player")
         {
-         //   PlayerAttached = true;
-         //   PlayerLocationOnPlatform = this.transform.position - coll.gameObject.transform.position;
-         //   dis = PlayerLocationOnPlatform.y;
+
         }
     }
     void OnCollisionExit(Collision coll)
@@ -72,7 +60,7 @@ public class MovingPlatform : MonoBehaviour {
     {
         while(true)
         {
-            yield return new WaitForSeconds(0.02f);
+            yield return new WaitForSeconds(0.005f);
             distCovered = (Time.time - startTime ) * speed;
             fracJourney = (distCovered / JourneyLength) - timesDid;
 
