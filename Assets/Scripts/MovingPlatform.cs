@@ -29,8 +29,9 @@ public class MovingPlatform : MonoBehaviour {
     {
         if (coll.gameObject.tag == "Player") // && coll.gameObject.transform.position.y > gameObject.transform.position.y)
         {
-            if(coll.gameObject.GetComponent<GetSideHit>().ifTop(this.gameObject))
-            coll.gameObject.GetComponent<Move2D>().jumped = false;
+			if( coll.gameObject.GetComponent<GetSideHit>().ifTop(this.gameObject) ) {
+            	coll.gameObject.GetComponent<Move2D>().jumped = false;
+			}
         }
     }
     void OnCollisionStay(Collision coll)

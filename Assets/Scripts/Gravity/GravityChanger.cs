@@ -30,7 +30,9 @@ public class GravityChanger : MonoBehaviour {
 	}
 	public enum RotateDirection {
 		Left = -1,
-		Right = 1
+		Right = 1,
+		Top = 0,
+		Bottom = 2
 	}
 	public RotateDirection RotDirection = RotateDirection.Left;
 

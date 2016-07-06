@@ -12,6 +12,8 @@ public class Move2D : MonoBehaviour
 		}
 	}
 
+	public GetSideHit.HitDirection hitDirUp = GetSideHit.HitDirection.Top;
+
 	public Transform orient;
 
     public float power = 15;
@@ -32,7 +34,14 @@ public class Move2D : MonoBehaviour
 	public Vector3 originRot = Vector3.right;
 
 	public void OnGravityChange( Vector3 v3, GravityChanger.RotateDirection dir ) {
-		Vector3 vector = Quaternion.Euler(0, 0, 90*(float)dir) * v3;;
+		Vector3 vector = Quaternion.Euler(0, 0, 90*(float)dir) * v3;
+
+		if( dir == GravityChanger.RotateDirection.Right ) { 
+			hitDirUp = GetSideHit.HitDirection.Left;
+		} else if(  dir == GravityChanger.RotateDirection.Left ){
+			hitDirUp = GetSideHit.HitDirection.Right;
+		}
+
 		//Vector3 rotated = Quaternion.AngleAxis(90, cross) * v3;
 		//Debug.Log( "OnGravityChange = " + v3 + " rotated = " + vector );
 		//wantOrientation = Quaternion.LookRotation( vector );
@@ -60,20 +69,23 @@ public class Move2D : MonoBehaviour
 
 		//Debug.Log("want orient = " + wantOrientation );
 
-        if (GetComponent<Rigidbody>().velocity.magnitude > 0.1f)
-        {
+        if (GetComponent<Rigidbody>().velocity.magnitude > 0.1f)  {
             isMoving = true;
-        }
-        else
-        {
+        }  else {
             isMoving = false;
         }
 
-        if (Input.GetButtonDown("Jump") && !jumped && !QuickSandFalling) // && jumpTime > endJumpTime)
-        {
-            GetComponent<Rigidbody>().AddForce( -Physics.gravity * jumpPower );
-            jumped = true;
-        }
+		if (Input.GetButtonDown("Jump") )  { // && jumpTime > endJumpTime)
+			if(!jumped && !QuickSandFalling){
+				Debug.Log("Executing Jump");
+				GetComponent<Rigidbody>().AddForce( -Physics.gravity * jumpPower );
+				jumped = true;
+			} else {
+				Debug.Log("Sorry, cannot jump; QuickSandFalling" + QuickSandFalling + " already jumping=" + jumped );
+			}
+		} else {
+			
+		}
 
         if (Input.GetAxis("Horizontal") != 0 && canMove)
         {
