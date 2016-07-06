@@ -130,8 +130,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floor: {fileID: 1176147120}
   gravityMultiply: 10
-  newGravity: {x: 0, y: 0, z: 0}
-  rightSite: {x: 0, y: 0, z: 0}
+  newGravity: {x: -5.000003, y: -8.660254, z: 0.00000029802322}
+  rightSite: {x: 0.86602527, y: -0.5000004, z: -0.00000014901161}
+  gravTF: {fileID: 0}
 --- !u!23 &15406432
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -224,6 +225,7 @@ MonoBehaviour:
   gravityMultiply: 10
   newGravity: {x: -100, y: -10, z: 0}
   rightSite: {x: 0, y: 0, z: 0}
+  gravTF: {fileID: 0}
 --- !u!23 &31946378
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -653,8 +655,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floor: {fileID: 1002044346}
   gravityMultiply: 10
-  newGravity: {x: 0, y: 0, z: 0}
-  rightSite: {x: 0, y: 0, z: 0}
+  newGravity: {x: 9.999999, y: 0, z: -0.0000011920929}
+  rightSite: {x: 0, y: 1, z: 0}
+  gravTF: {fileID: 0}
 --- !u!23 &489126613
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1023,8 +1026,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floor: {fileID: 1176147120}
   gravityMultiply: 10
-  newGravity: {x: 0, y: 0, z: 0}
-  rightSite: {x: 0, y: 0, z: 0}
+  newGravity: {x: -5.000003, y: -8.660254, z: 0.00000029802322}
+  rightSite: {x: 0.86602527, y: -0.5000004, z: -0.00000014901161}
+  gravTF: {fileID: 0}
 --- !u!23 &588513172
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1119,8 +1123,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floor: {fileID: 1516121125}
   gravityMultiply: 10
-  newGravity: {x: 0, y: 0, z: 0}
-  rightSite: {x: 0, y: 0, z: 0}
+  newGravity: {x: -8.660255, y: -4.999998, z: 0.0000013411045}
+  rightSite: {x: 0.49999982, y: -0.8660255, z: -0.000000074505806}
+  gravTF: {fileID: 0}
 --- !u!23 &885553386
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1258,6 +1263,7 @@ MonoBehaviour:
   gravityMultiply: 10
   newGravity: {x: -10, y: -100, z: 0}
   rightSite: {x: 0, y: 0, z: 0}
+  gravTF: {fileID: 0}
 --- !u!1001 &933899452
 Prefab:
   m_ObjectHideFlags: 0
@@ -1704,8 +1710,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floor: {fileID: 1475676647}
   gravityMultiply: 10
-  newGravity: {x: 0, y: 0, z: 0}
-  rightSite: {x: 0, y: 0, z: 0}
+  newGravity: {x: -0.0000011920929, y: -9.999999, z: 0.0000011920929}
+  rightSite: {x: 0.9999999, y: -0.000000059604645, z: -0.00000011920929}
+  gravTF: {fileID: 0}
 --- !u!23 &1196559014
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1796,8 +1803,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floor: {fileID: 1062745145}
   gravityMultiply: 10
-  newGravity: {x: 0, y: 0, z: 0}
-  rightSite: {x: 0, y: 0, z: 0}
+  newGravity: {x: -9.960854, y: -0.8838755, z: -0.011850286}
+  rightSite: {x: 0.08839416, y: -0.9960546, z: -0.007844839}
+  gravTF: {fileID: 0}
 --- !u!23 &1255105461
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1889,8 +1897,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floor: {fileID: 1600850552}
   gravityMultiply: 10
-  newGravity: {x: 0, y: 0, z: 0}
-  rightSite: {x: 0, y: 0, z: 0}
+  newGravity: {x: 8.660253, y: 5.000001, z: -0.0000011920929}
+  rightSite: {x: -0.5000001, y: 0.8660253, z: 0.000000059604645}
+  gravTF: {fileID: 0}
 --- !u!23 &1295060967
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1981,8 +1990,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floor: {fileID: 1176147120}
   gravityMultiply: 10
-  newGravity: {x: 0, y: 0, z: 0}
-  rightSite: {x: 0, y: 0, z: 0}
+  newGravity: {x: -5.000003, y: -8.660254, z: 0.00000029802322}
+  rightSite: {x: 0.86602527, y: -0.5000004, z: -0.00000014901161}
+  gravTF: {fileID: 0}
 --- !u!23 &1337936001
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2073,8 +2083,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floor: {fileID: 1600850552}
   gravityMultiply: 10
-  newGravity: {x: 0, y: 0, z: 0}
-  rightSite: {x: 0, y: 0, z: 0}
+  newGravity: {x: 8.660253, y: 5.000001, z: -0.0000011920929}
+  rightSite: {x: -0.5000001, y: 0.8660253, z: 0.000000059604645}
+  gravTF: {fileID: 0}
 --- !u!23 &1365722648
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2212,6 +2223,7 @@ MonoBehaviour:
   gravityMultiply: 10
   newGravity: {x: -10, y: 10, z: 0}
   rightSite: {x: 0, y: 0, z: 0}
+  gravTF: {fileID: 0}
 --- !u!1 &1387820946
 GameObject:
   m_ObjectHideFlags: 0
@@ -2263,7 +2275,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 2
 --- !u!4 &1387820949
 Transform:
@@ -2398,8 +2410,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floor: {fileID: 1176147120}
   gravityMultiply: 10
-  newGravity: {x: 0, y: 0, z: 0}
-  rightSite: {x: 0, y: 0, z: 0}
+  newGravity: {x: -5.000003, y: -8.660254, z: 0.00000029802322}
+  rightSite: {x: 0.86602527, y: -0.5000004, z: -0.00000014901161}
+  gravTF: {fileID: 0}
 --- !u!23 &1482832299
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2526,8 +2539,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floor: {fileID: 1062745145}
   gravityMultiply: 10
-  newGravity: {x: 0, y: 0, z: 0}
-  rightSite: {x: 0, y: 0, z: 0}
+  newGravity: {x: -9.960854, y: -0.8838755, z: -0.011850286}
+  rightSite: {x: 0.08839416, y: -0.9960546, z: -0.007844839}
+  gravTF: {fileID: 0}
 --- !u!23 &1604192279
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2618,8 +2632,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floor: {fileID: 295881319}
   gravityMultiply: 10
-  newGravity: {x: 0, y: 0, z: 0}
-  rightSite: {x: 0, y: 0, z: 0}
+  newGravity: {x: 4.910135, y: 8.71152, z: -0.00000029802322}
+  rightSite: {x: -0.871152, y: 0.49101347, z: 0}
+  gravTF: {fileID: 0}
 --- !u!23 &1611222937
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2757,6 +2772,7 @@ MonoBehaviour:
   gravityMultiply: 10
   newGravity: {x: 0, y: -10, z: 0}
   rightSite: {x: 0, y: 0, z: 0}
+  gravTF: {fileID: 0}
 --- !u!1001 &1650470656
 Prefab:
   m_ObjectHideFlags: 0
@@ -2914,8 +2930,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floor: {fileID: 1516121125}
   gravityMultiply: 10
-  newGravity: {x: 0, y: 0, z: 0}
-  rightSite: {x: 0, y: 0, z: 0}
+  newGravity: {x: -8.660255, y: -4.999998, z: 0.0000013411045}
+  rightSite: {x: 0.49999982, y: -0.8660255, z: -0.000000074505806}
+  gravTF: {fileID: 0}
 --- !u!23 &1866689694
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3072,8 +3089,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floor: {fileID: 1600850552}
   gravityMultiply: 10
-  newGravity: {x: 0, y: 0, z: 0}
-  rightSite: {x: 0, y: 0, z: 0}
+  newGravity: {x: 8.660253, y: 5.000001, z: -0.0000011920929}
+  rightSite: {x: -0.5000001, y: 0.8660253, z: 0.000000059604645}
+  gravTF: {fileID: 0}
 --- !u!23 &1997751323
 MeshRenderer:
   m_ObjectHideFlags: 0
