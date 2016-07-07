@@ -12,6 +12,8 @@ public class Move2D : MonoBehaviour
 		}
 	}
 
+    public Animator animator;
+
 	public GetSideHit.HitDirection hitDirUp = GetSideHit.HitDirection.Top;
 
 	public Transform orient;
@@ -94,6 +96,8 @@ public class Move2D : MonoBehaviour
         if (Input.GetAxis("Horizontal") != 0 && canMove)
         {
             GetComponent<Rigidbody>().AddForce( right * Input.GetAxis("Horizontal") * power);
+            if (Input.GetAxis("Horizontal") > 0) animator.transform.parent.localScale = new Vector3(0.2023852f, animator.transform.parent.localScale.y, animator.transform.parent.localScale.z);
+            else animator.transform.parent.localScale = new Vector3(-0.2023852f, animator.transform.parent.localScale.y, animator.transform.parent.localScale.z);
         }
         else
         {
