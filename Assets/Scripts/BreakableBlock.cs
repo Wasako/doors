@@ -6,7 +6,12 @@ public class BreakableBlock : MonoBehaviour {
 
     public Sprite NewBlock, Damaged, AlmostDestroyed;
    
-   
+    void Start()
+    {
+        GetComponent<SpriteRenderer>().sprite = NewBlock;
+
+    }
+
     void OnCollisionEnter(Collision coll)
     {
         if(coll.gameObject.tag == "Player")
