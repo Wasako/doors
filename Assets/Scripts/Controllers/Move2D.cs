@@ -50,22 +50,26 @@ public class Move2D : MonoBehaviour
 
 		wantOrientation = angle;	
 		rotateTime = 1f;
-		originRot = orient.rotation.eulerAngles.z;
+		if(orient!=null)
+			originRot = orient.rotation.eulerAngles.z;
 		if( instantRotate ) {
-			//orient.right = wantOrientation;
+			//orient.right = wantOrientation;z
+
+
 		}
 	} 
 
 
     void Update() {
 		if( !instantRotate &&  rotateTime > 0f ) {
-			rotateTime -= Time.deltaTime*transSpd;
+			rotateTime -= Time.deltaTime * transSpd;
 			if( rotateTime <= 0 ) {
 				rotateTime = 0f;
 			}
 			var t = 1f - rotateTime;
 			var tmpRot = Mathf.SmoothStep( originRot, wantOrientation, t );
-			orient.rotation = Quaternion.Euler( 0,0,tmpRot );
+			if(orient!=null)
+				orient.rotation = Quaternion.Euler( 0,0,tmpRot );
 		}
 
 
