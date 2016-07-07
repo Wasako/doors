@@ -32,12 +32,10 @@ public class Move2D : MonoBehaviour
     public bool _jumped = false;
     public bool jumped
     {
-        get
-        {
+        get {
             return _jumped;
         }
-        set
-        {
+        set {
             _jumped = value;
             animator.SetBool("Jump", value);
         }
@@ -56,6 +54,7 @@ public class Move2D : MonoBehaviour
 	public Collider coll;
 	public Rigidbody rigid;
 	public GravityChanger.RotateDirection lastRot = GravityChanger.RotateDirection.Rot_0;
+	public bool verbose=false;
 
 	public void OnGravityChange( Vector3 v3, GravityChanger.RotateDirection dir ) {
 		lastRot = dir;
@@ -74,12 +73,10 @@ public class Move2D : MonoBehaviour
 
 		wantOrientation = angle;	
 		rotateTime = 1f;
-		if(orient!=null)
+		if( orient!=null )
 			originRot = orient.rotation.eulerAngles.z;
 		if( instantRotate ) {
 			//orient.right = wantOrientation;z
-
-
 		}
 	} 
 
@@ -160,12 +157,12 @@ public class Move2D : MonoBehaviour
 				var hori = Input.GetAxis("Horizontal");
 				var force = rotVec * hori * power;
 
-				Debug.Log( "Moving character with force=" + force +  " right="+ rotVec + "; power="+power );
+				if(verbose)Debug.Log( "Moving character with force=" + force +  " right="+ rotVec + "; power="+power );
 				rigid.AddForce( force );
 
 				// Set the direction of the grapyics.
-				if ( hori > 0 ) animator.transform.parent.localScale = new Vector3(0.2023852f, animator.transform.parent.localScale.y, animator.transform.parent.localScale.z);
-				else animator.transform.parent.localScale = new Vector3(-0.2023852f, animator.transform.parent.localScale.y, animator.transform.parent.localScale.z);
+				if ( hori > 0 ) animator.transform.parent.localScale = new Vector3( 0.2023852f, animator.transform.parent.localScale.y, animator.transform.parent.localScale.z);
+				else animator.transform.parent.localScale = new Vector3( -0.2023852f, animator.transform.parent.localScale.y, animator.transform.parent.localScale.z);
 			} else {
 				Debug.Log("cannot move now");
 			}
