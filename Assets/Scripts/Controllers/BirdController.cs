@@ -15,7 +15,6 @@ public class BirdController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         counter = (counter + Time.deltaTime*sinMultiple*2) % (Mathf.PI * 2);
-        print(Mathf.Sin(counter));
         transform.position = new Vector2(transform.position.x, startPosition.y + Mathf.Sin(counter)/sinMultiple);
 	    
 	}
