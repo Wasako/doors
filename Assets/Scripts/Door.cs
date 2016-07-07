@@ -24,7 +24,6 @@ public class Door : MonoBehaviour {
 
 	void SetNextLevel( string name ) {
 		UnityEngine.SceneManagement.SceneManager.LoadScene(name);
-	
 	}
 
 
@@ -45,9 +44,6 @@ public class Door : MonoBehaviour {
 		if (coll.gameObject.tag == "Player")
 		{
 			Over=false;
-
-	
-
 		}
 	}
 

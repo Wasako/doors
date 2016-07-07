@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[ExecuteInEditMode]
 public class MovingPlatform : MonoBehaviour {
 
     public Vector3 DeltaTargetPosition = Vector3.zero;
@@ -14,19 +15,31 @@ public class MovingPlatform : MonoBehaviour {
     Vector3 PlayerLocationOnPlatform;
     float dis = 0f;
     Vector3 PlayerScale = Vector3.zero;
-
+	public Transform offset;
 
     void Start()
     {
+		if( !Application.isPlaying ) {
+			return;
+		}
         startTime = 0f;
         StartingPosition = transform.position;
         JourneyLength = Vector2.Distance(StartingPosition, StartingPosition + DeltaTargetPosition);
         StartCoroutine(Movement());
     }
 
+	void Update() {
+		if( !Application.isPlaying && offset!=null ) {
+			DeltaTargetPosition = this.offset.position - this.transform.position;
+		}
+	}
+
 
     void OnCollisionEnter(Collision coll)
     {
+		if( !Application.isPlaying ) {
+			return;
+		}
         if (coll.gameObject.tag == "Player") // && coll.gameObject.transform.position.y > gameObject.transform.position.y)
         {
 			if( coll.gameObject.GetComponent<GetSideHit>().ifTop(this.gameObject) ) {
@@ -36,6 +49,9 @@ public class MovingPlatform : MonoBehaviour {
     }
     void OnCollisionStay(Collision coll)
     {
+		if( !Application.isPlaying ) {
+			return;
+		}
         if (coll.gameObject.tag == "Player")
         {
 
@@ -43,6 +59,9 @@ public class MovingPlatform : MonoBehaviour {
     }
     void OnCollisionExit(Collision coll)
     {
+		if( !Application.isPlaying ) {
+			return;
+		}
         if (coll.gameObject.tag == "Player")
         {
           //  coll.transform.SetParent(null);
