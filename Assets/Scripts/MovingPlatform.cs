@@ -80,7 +80,7 @@ public class MovingPlatform : MonoBehaviour {
     {
         while(true)
         {
-            yield return new WaitForSeconds(0.005f);
+            yield return new WaitForSeconds(0.001f);
             distCovered = (Time.time - startTime ) * speed;
             fracJourney = (distCovered / JourneyLength) - timesDid;
 
