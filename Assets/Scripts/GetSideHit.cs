@@ -3,20 +3,25 @@ using System.Collections;
 
 public class GetSideHit : MonoBehaviour
 {
+	public Collider coll;
+	public Rigidbody rigid;
 
+	public bool verbose = true;
     void OnCollisionEnter(Collision collision)
     {
-
-		Debug.Log( "GetSideHit: OnCollisionEnter:"+ ReturnDirection(collision.gameObject, this.gameObject));
+		if(verbose)Debug.Log( "GetSideHit: OnCollisionEnter:"+ ReturnDirection(collision.gameObject, this.gameObject));
     }
 
     public enum HitDirection { None, Top, Bottom, Forward, Back, Left, Right }
 
+
+
     public bool ifTop(GameObject obj)
     {
 		var hitDir = ReturnDirection(obj, this.gameObject);
-		Debug.Log( "GetSideHit: Hit direction : " + hitDir );
 		var move2D= this.gameObject.GetComponent<Move2D>();
+		if(verbose && move2D==null )Debug.Log( "GetSideHit: ifTop; Hit direction : " + hitDir );
+		if(verbose && move2D!=null )Debug.Log( "GetSideHit: ifTop; Hit direction : " + hitDir + "; up="+move2D.hitDirUp );
 		if( move2D!=null ){
 			if( hitDir == move2D.hitDirUp || hitDir == HitDirection.None) {
 				return true;
@@ -39,12 +44,9 @@ public class GetSideHit : MonoBehaviour
         if (Physics.Raycast(MyRay, out MyRayHit))
         {
 
-            if (MyRayHit.collider != null)
-            {
-
+            if( MyRayHit.collider != null ) {
                 Vector3 MyNormal = MyRayHit.normal;
                 MyNormal = MyRayHit.transform.TransformDirection(MyNormal);
-
                 if (MyNormal == MyRayHit.transform.up) { hitDirection = HitDirection.Top; }
                 if (MyNormal == -MyRayHit.transform.up) { hitDirection = HitDirection.Bottom; }
                 if (MyNormal == MyRayHit.transform.forward) { hitDirection = HitDirection.Forward; }
