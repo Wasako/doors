@@ -28,17 +28,24 @@ public class GravityChanger : MonoBehaviour {
 		if( this.gravTF!=null ) 
 			newGravity = this.gravTF.right.normalized * gravityMultiply;
 	}
-
+	public enum RotateDirection {
+		
+		Rot_0 = 0,
+		Rot_90 = 1,
+		Rot_270 = -1,
+		Rot_180 = 2
+	}
+	public RotateDirection RotDirection = RotateDirection.Rot_270;
 
     void OnTriggerEnter( Collider other ) {
 		if( !other.name.ToLower().Contains("player") ) {
-			Debug.Log("Ignored collider  :" + other.name + " when changing direction");
+			Debug.Log("Ignored collider  :" + other.name + " when changing direction of gravity");
 			return;
 		}
 		Debug.Log("Changing Gravity");
         Physics.gravity = newGravity;
 		if( other.GetComponent<Move2D>()!=null ) 
-	        other.GetComponent<Move2D>().right = rightSite;
+			other.GetComponent<Move2D>().OnGravityChange( this.gravTF.right.normalized , RotDirection );
     }
 
 }
