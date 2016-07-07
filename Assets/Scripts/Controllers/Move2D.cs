@@ -24,7 +24,19 @@ public class Move2D : MonoBehaviour
     public float endJumpTime = 1;
     public bool isMoving = false;
 
-    public bool jumped = false;
+    public bool _jumped = false;
+    public bool jumped
+    {
+        get
+        {
+            return _jumped;
+        }
+        set
+        {
+            _jumped = value;
+            animator.SetBool("Jump", value);
+        }
+    }
 
     public bool canMove = true;
     public bool QuickSandFalling = false;
@@ -76,8 +88,10 @@ public class Move2D : MonoBehaviour
 
 
         if (GetComponent<Rigidbody>().velocity.magnitude > 0.1f)  {
+            animator.SetBool("Move", true);
             isMoving = true;
         }  else {
+            animator.SetBool("Move", false);
             isMoving = false;
         }
 
