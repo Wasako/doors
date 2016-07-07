@@ -29,12 +29,13 @@ public class GravityChanger : MonoBehaviour {
 			newGravity = this.gravTF.right.normalized * gravityMultiply;
 	}
 	public enum RotateDirection {
-		Left = -1,
-		Right = 1,
-		Top = 0,
-		Bottom = 2
+		
+		Rot_0 = 0,
+		Rot_90 = 1,
+		Rot_270 = -1,
+		Rot_180 = 2
 	}
-	public RotateDirection RotDirection = RotateDirection.Left;
+	public RotateDirection RotDirection = RotateDirection.Rot_270;
 
     void OnTriggerEnter( Collider other ) {
 		if( !other.name.ToLower().Contains("player") ) {

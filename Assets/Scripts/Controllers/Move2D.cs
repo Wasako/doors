@@ -8,7 +8,7 @@ public class Move2D : MonoBehaviour
 			return orient.right;
 		}
 		set {
-       //     orient.right = value;
+			
 		}
 	}
 
@@ -28,48 +28,46 @@ public class Move2D : MonoBehaviour
     public bool QuickSandFalling = false;
 
 
-	public Vector3 wantOrientation = Vector3.right;
+	public float wantOrientation = 0f;
 	float rotateTime = 0f;
 	public float transSpd  = 3f;
-	public Vector3 originRot = Vector3.right;
+	public float originRot = 0;
+	public bool instantRotate = false;
 
 	public void OnGravityChange( Vector3 v3, GravityChanger.RotateDirection dir ) {
-		Vector3 vector = Quaternion.Euler(0, 0, 90*(float)dir) * v3;
-
-
-
-		if( dir == GravityChanger.RotateDirection.Right ) { 
+		float angle = 90f*(float)dir;
+		Vector3 vector = Quaternion.Euler(0, 0, angle) * v3;
+		if( dir == GravityChanger.RotateDirection.Rot_0 ) { 
 			hitDirUp = GetSideHit.HitDirection.Left;
-		} else if(  dir == GravityChanger.RotateDirection.Left ){
+		} else if(  dir == GravityChanger.RotateDirection.Rot_270 ){
 			hitDirUp = GetSideHit.HitDirection.Right;
+		} else if( dir == GravityChanger.RotateDirection.Rot_90 ) {
+			hitDirUp = GetSideHit.HitDirection.Bottom;
+		} else if( dir == GravityChanger.RotateDirection.Rot_180 ) {
+			hitDirUp = GetSideHit.HitDirection.Top;
 		}
+		Debug.Log("OnGravityChange: Rotating player towards angle : " + angle +  "; v3=" + vector + ": rotate player orient towards : " + dir + "; ground is now : " + hitDirUp );
 
-		//Vector3 rotated = Quaternion.AngleAxis(90, cross) * v3;
-		//Debug.Log( "OnGravityChange = " + v3 + " rotated = " + vector );
-		//wantOrientation = Quaternion.LookRotation( vector );
-		wantOrientation = vector;	
+		wantOrientation = angle;	
 		rotateTime = 1f;
-		originRot = orient.right;
+		originRot = orient.rotation.eulerAngles.z;
+		if( instantRotate ) {
+			//orient.right = wantOrientation;
+		}
 	} 
 
 
-    void Update()
-    {
-		if( rotateTime > 0f ) {
+    void Update() {
+		if( !instantRotate &&  rotateTime > 0f ) {
 			rotateTime -= Time.deltaTime*transSpd;
 			if( rotateTime <= 0 ) {
 				rotateTime = 0f;
 			}
 			var t = 1f - rotateTime;
-			//Debug.Log("rotateTime=" + t);
-
-			var tmpRot = Vector3.Slerp( originRot, wantOrientation, t );
-			orient.right = tmpRot;
+			var tmpRot = Mathf.SmoothStep( originRot, wantOrientation, t );
+			orient.rotation = Quaternion.Euler( 0,0,tmpRot );
 		}
 
-
-
-		//Debug.Log("want orient = " + wantOrientation );
 
         if (GetComponent<Rigidbody>().velocity.magnitude > 0.1f)  {
             isMoving = true;

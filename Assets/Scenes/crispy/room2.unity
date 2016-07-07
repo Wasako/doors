@@ -204,7 +204,6 @@ Transform:
   m_LocalRotation: {x: 0.50000006, y: 0, z: 0, w: 0.8660254}
   m_LocalPosition: {x: 5.459999, y: 2.25, z: 7.879999}
   m_LocalScale: {x: 22, y: 5, z: 0.099999994}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1168901363}
   m_RootOrder: 2
@@ -433,7 +432,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.02, y: 1.51, z: -43.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -558,7 +556,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: -0.00035877808, w: -0.99999994}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1552936368}
   m_Father: {fileID: 141414149}
@@ -807,7 +804,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.49, y: -0.79, z: -2.1484375}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1562107296}
   - {fileID: 135954375}
@@ -997,7 +993,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.11, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 2103301235}
   - {fileID: 88716871}
@@ -2780,7 +2775,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071067}
   m_LocalPosition: {x: 0, y: 14.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1435984331}
   - {fileID: 881730615}
@@ -2817,7 +2811,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -13.03, y: -0.79, z: -2.1484375}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 39799036}
   - {fileID: 1395356193}
@@ -2865,7 +2858,6 @@ Transform:
   m_LocalRotation: {x: -0.48689622, y: 0.00000008898549, z: 0.00000018217652, w: -0.8734599}
   m_LocalPosition: {x: 5.46, y: 13.31, z: 20.24}
   m_LocalScale: {x: 22, y: 5, z: 0.1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1168901363}
   m_RootOrder: 3
@@ -3777,7 +3769,6 @@ Transform:
   m_LocalRotation: {x: -0, y: 0, z: 0.00035877808, w: -0.99999994}
   m_LocalPosition: {x: 0.020121204, y: 0.16890863, z: -0.05258329}
   m_LocalScale: {x: 0.20238522, y: 0.20238522, z: 0.20238522}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 88716871}
   m_RootOrder: 0
@@ -4421,15 +4412,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11498894, guid: e91344e29078b45739dec4e6be07a9e0, type: 2}
       propertyPath: newGravity.x
-      value: -0.0000005960465
+      value: 0.0000026822092
       objectReference: {fileID: 0}
     - target: {fileID: 11498894, guid: e91344e29078b45739dec4e6be07a9e0, type: 2}
       propertyPath: newGravity.y
-      value: -5
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 11498894, guid: e91344e29078b45739dec4e6be07a9e0, type: 2}
       propertyPath: RotDirection
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 168016, guid: e91344e29078b45739dec4e6be07a9e0, type: 2}
       propertyPath: m_Name
@@ -4531,7 +4522,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11498894, guid: e91344e29078b45739dec4e6be07a9e0, type: 2}
       propertyPath: RotDirection
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 168016, guid: e91344e29078b45739dec4e6be07a9e0, type: 2}
       propertyPath: m_Name
@@ -4743,7 +4734,6 @@ Transform:
   m_LocalRotation: {x: 0.25881907, y: 0, z: 0, w: 0.9659258}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 141414149}
   m_RootOrder: 0
@@ -4869,7 +4859,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -4954,7 +4943,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11498894, guid: e91344e29078b45739dec4e6be07a9e0, type: 2}
       propertyPath: RotDirection
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 168016, guid: e91344e29078b45739dec4e6be07a9e0, type: 2}
       propertyPath: m_Name
@@ -5107,9 +5096,10 @@ MonoBehaviour:
   jumped: 0
   canMove: 1
   QuickSandFalling: 0
-  wantOrientation: {x: 0, y: 0, z: 0}
+  wantOrientation: 0
   transSpd: 3
-  originRot: {x: 1, y: 0, z: 0}
+  originRot: 0
+  instantRotate: 0
 --- !u!54 &2145932483
 Rigidbody:
   m_ObjectHideFlags: 0
