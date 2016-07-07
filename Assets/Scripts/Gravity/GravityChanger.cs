@@ -19,7 +19,6 @@ public class GravityChanger : MonoBehaviour {
                 rightSite = floor.transform.up;
             }
         }
-	
 	}
 	
 	// Update is called once per frame
@@ -42,8 +41,9 @@ public class GravityChanger : MonoBehaviour {
 			Debug.Log("Ignored collider  :" + other.name + " when changing direction of gravity");
 			return;
 		}
-		Debug.Log("Changing Gravity");
+		Debug.Log("Changing Gravity : " + newGravity );
         Physics.gravity = newGravity;
+
 		if( other.GetComponent<Move2D>()!=null ) 
 			other.GetComponent<Move2D>().OnGravityChange( this.gravTF.right.normalized , RotDirection );
     }
