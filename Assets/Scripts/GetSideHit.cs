@@ -7,7 +7,7 @@ public class GetSideHit : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
 
-        Debug.Log(ReturnDirection(collision.gameObject, this.gameObject));
+		Debug.Log( "GetSideHit: OnCollisionEnter:"+ ReturnDirection(collision.gameObject, this.gameObject));
     }
 
     public enum HitDirection { None, Top, Bottom, Forward, Back, Left, Right }
@@ -15,7 +15,7 @@ public class GetSideHit : MonoBehaviour
     public bool ifTop(GameObject obj)
     {
 		var hitDir = ReturnDirection(obj, this.gameObject);
-		Debug.Log( "Hit direction : " + hitDir );
+		Debug.Log( "GetSideHit: Hit direction : " + hitDir );
 		var move2D= this.gameObject.GetComponent<Move2D>();
 		if( move2D!=null ){
 			if( hitDir == move2D.hitDirUp || hitDir == HitDirection.None) {
