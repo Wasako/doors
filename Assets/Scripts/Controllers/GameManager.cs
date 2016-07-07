@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour {
     int actualParts = 0;
     public List<string> thingsNames = new List<string>(7);
     public List<string> playerThings;
+    public GameObject camera;
 
     void Avake()
     {
@@ -47,7 +48,11 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+	    
+        if(Input.GetKeyDown(KeyCode.Escape)) {
+            BlackScreen();
+        }
+
 	}
 
     public void AddStuff(string name)
@@ -77,7 +82,6 @@ public class GameManager : MonoBehaviour {
             PlayerPrefs.SetString( thingsNames[i], playerThings[i]);
         }
         
-
     }
 
     void Load()
@@ -96,6 +100,11 @@ public class GameManager : MonoBehaviour {
     public void WearIt()
     {
         //Trigger or something?
+    }
+
+    public void BlackScreen()
+    {
+        camera.SetActive(!camera.activeSelf);
     }
 
 }
