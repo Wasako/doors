@@ -12,6 +12,8 @@ public class Move2D : MonoBehaviour
 		}
 	}
 
+    public Animator animator;
+
 	public GetSideHit.HitDirection hitDirUp = GetSideHit.HitDirection.Top;
 
 	public Transform orient;
@@ -22,7 +24,19 @@ public class Move2D : MonoBehaviour
     public float endJumpTime = 1;
     public bool isMoving = false;
 
-    public bool jumped = false;
+    public bool _jumped = false;
+    public bool jumped
+    {
+        get
+        {
+            return _jumped;
+        }
+        set
+        {
+            _jumped = value;
+            animator.SetBool("Jump", value);
+        }
+    }
 
     public bool canMove = true;
     public bool QuickSandFalling = false;
@@ -50,28 +64,34 @@ public class Move2D : MonoBehaviour
 
 		wantOrientation = angle;	
 		rotateTime = 1f;
-		originRot = orient.rotation.eulerAngles.z;
+		if(orient!=null)
+			originRot = orient.rotation.eulerAngles.z;
 		if( instantRotate ) {
-			//orient.right = wantOrientation;
+			//orient.right = wantOrientation;z
+
+
 		}
 	} 
 
 
     void Update() {
 		if( !instantRotate &&  rotateTime > 0f ) {
-			rotateTime -= Time.deltaTime*transSpd;
+			rotateTime -= Time.deltaTime * transSpd;
 			if( rotateTime <= 0 ) {
 				rotateTime = 0f;
 			}
 			var t = 1f - rotateTime;
 			var tmpRot = Mathf.SmoothStep( originRot, wantOrientation, t );
-			orient.rotation = Quaternion.Euler( 0,0,tmpRot );
+			if(orient!=null)
+				orient.rotation = Quaternion.Euler( 0,0,tmpRot );
 		}
 
 
         if (GetComponent<Rigidbody>().velocity.magnitude > 0.1f)  {
+            animator.SetBool("Move", true);
             isMoving = true;
         }  else {
+            animator.SetBool("Move", false);
             isMoving = false;
         }
 
@@ -90,6 +110,8 @@ public class Move2D : MonoBehaviour
         if (Input.GetAxis("Horizontal") != 0 && canMove)
         {
             GetComponent<Rigidbody>().AddForce( right * Input.GetAxis("Horizontal") * power);
+            if (Input.GetAxis("Horizontal") > 0) animator.transform.parent.localScale = new Vector3(0.2023852f, animator.transform.parent.localScale.y, animator.transform.parent.localScale.z);
+            else animator.transform.parent.localScale = new Vector3(-0.2023852f, animator.transform.parent.localScale.y, animator.transform.parent.localScale.z);
         }
         else
         {
