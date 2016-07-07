@@ -4420,7 +4420,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11498894, guid: e91344e29078b45739dec4e6be07a9e0, type: 2}
       propertyPath: RotDirection
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 168016, guid: e91344e29078b45739dec4e6be07a9e0, type: 2}
       propertyPath: m_Name
