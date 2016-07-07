@@ -18,7 +18,7 @@ public class GetSideHit : MonoBehaviour
 
     public bool ifTop(GameObject obj)
     {
-		var hitDir = ReturnDirection(obj, this.gameObject);
+		var hitDir = ReturnHitPointDirection(obj, this.gameObject);
 		var move2D= this.gameObject.GetComponent<Move2D>();
 		if(verbose && move2D==null )Debug.Log( "GetSideHit: ifTop; Hit direction : " + hitDir );
 		if(verbose && move2D!=null )Debug.Log( "GetSideHit: ifTop; Hit direction : " + hitDir + "; up="+move2D.hitDirUp );
@@ -33,6 +33,38 @@ public class GetSideHit : MonoBehaviour
 		}
         return false;
     }
+
+    private HitDirection ReturnHitPointDirection(GameObject  objectFrom, GameObject objectHit)
+    {
+        HitDirection hitDirection = HitDirection.None;
+        RaycastHit MyRayHit;
+
+        if(Physics.Raycast(objectFrom.transform.position, - objectFrom.transform.up, out MyRayHit))
+        {
+            if (MyRayHit.collider.gameObject == objectHit) hitDirection = HitDirection.Bottom;
+        }
+
+        if (Physics.Raycast(objectFrom.transform.position, objectFrom.transform.up, out MyRayHit))
+        {
+            if (MyRayHit.collider.gameObject == objectHit) hitDirection = HitDirection.Top;
+        }
+
+        if (Physics.Raycast(objectFrom.transform.position, objectFrom.transform.right, out MyRayHit))
+        {
+            if (MyRayHit.collider.gameObject == objectHit) hitDirection = HitDirection.Right;
+        }
+
+        if (Physics.Raycast(objectFrom.transform.position, -objectFrom.transform.right, out MyRayHit))
+        {
+            if (MyRayHit.collider.gameObject == objectHit) hitDirection = HitDirection.Left;
+        }
+
+        return hitDirection;
+
+
+    }
+
+
 
     private HitDirection ReturnDirection(GameObject Object, GameObject ObjectHit)
     {
