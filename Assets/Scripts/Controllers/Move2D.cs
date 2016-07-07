@@ -8,7 +8,7 @@ public class Move2D : MonoBehaviour
 			return orient.right;
 		}
 		set {
-			
+       //     orient.right = value;
 		}
 	}
 
@@ -35,6 +35,8 @@ public class Move2D : MonoBehaviour
 
 	public void OnGravityChange( Vector3 v3, GravityChanger.RotateDirection dir ) {
 		Vector3 vector = Quaternion.Euler(0, 0, 90*(float)dir) * v3;
+
+
 
 		if( dir == GravityChanger.RotateDirection.Right ) { 
 			hitDirUp = GetSideHit.HitDirection.Left;
