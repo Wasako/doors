@@ -31,6 +31,7 @@ GameObject:
   - 33: {fileID: 3326424}
   - 65: {fileID: 6590864}
   - 114: {fileID: 11497058}
+  - 114: {fileID: 11451128}
   m_Layer: 0
   m_Name: Delta
   m_TagString: Untagged
@@ -44,10 +45,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 102498}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071067}
-  m_LocalPosition: {x: -0, y: -10.26, z: 12.06}
+  m_LocalRotation: {x: -0.4999999, y: 0.5000002, z: 0.49999982, w: -0.50000006}
+  m_LocalPosition: {x: 0, y: -15.38, z: -12.24}
   m_LocalScale: {x: 1, y: 0.19999999, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 270}
   m_Children:
   - {fileID: 468698}
   m_Father: {fileID: 0}
@@ -59,8 +60,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 161022}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.8, y: -0.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -8.07, y: -0.8, z: 0}
+  m_LocalScale: {x: 0.9999711, y: 1, z: 1.0001447}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 409076}
@@ -166,12 +167,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 105ca35d3f74e4345a434eab0ab61439, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DeltaTargetPosition: {x: 14.799999, y: -0.10000038, z: -1.1368684e-13}
+  DeltaTargetPosition: {x: -0.16000366, y: 8.069999, z: -0.000000009536279}
   floatingTime: 5
   speed: 1
   offset: {fileID: 468698}
+  useTarget: 1
+  EndPosition: {x: 0, y: 0, z: 0}
   fracJourney: 0
   distCovered: 0
+  traverse: 0
+  t: 0
+  oldTime: 0
+--- !u!114 &11451128
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 161022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3edaf26217e9945c89d70b1774e61273, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11497058
 MonoBehaviour:
   m_ObjectHideFlags: 1
