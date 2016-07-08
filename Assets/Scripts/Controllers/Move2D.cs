@@ -4,6 +4,15 @@ using System.Collections;
 // Consider changing name to Champion / Hero or whatever...
 public class Move2D : MonoBehaviour
 {
+
+	public static Move2D Player {
+		get {
+			return 
+				GameObject.Find("Player").GetComponent<Move2D>();
+		}
+	}
+
+
 	public Vector3 rightVector3 {
 		get {
 			if( orient!=null )
@@ -56,6 +65,7 @@ public class Move2D : MonoBehaviour
 	public GravityChanger.RotateDirection lastRot = GravityChanger.RotateDirection.Rot_0;
 	public bool verbose=false;
 
+
 	public void OnGravityChange( Vector3 v3, GravityChanger.RotateDirection dir ) {
 		lastRot = dir;
 		float angle = 90f*(float)dir;
@@ -81,7 +91,7 @@ public class Move2D : MonoBehaviour
 	} 
 
 
-	void OnDrawGizmosSelected(){
+	void OnDrawGizmosSelected() {
 		Matrix4x4 m = Matrix4x4.TRS( Vector3.zero, Quaternion.Euler( 0, 0, this.orient.rotation.z ), Vector3.one);
 		//Debug.Log(" row = " + m.GetRow(0) );
 		//Debug.Log(" row = " + m.GetRow(1) );
@@ -93,7 +103,7 @@ public class Move2D : MonoBehaviour
 
 
     void Update() {
-		if( !instantRotate &&  rotateTime > 0f ) {
+		if( !instantRotate && rotateTime > 0f ) {
 			rotateTime -= Time.deltaTime * transSpd;
 			if( rotateTime <= 0 ) {
 				rotateTime = 0f;
