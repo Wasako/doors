@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour {
         }
         else
         {
-            Destroy(gameObject);
+			Destroy(gameObject);
         }
         print(singleton);
         DontDestroyOnLoad(this.gameObject);
@@ -212,7 +212,7 @@ public class GameManager : MonoBehaviour {
 
 
 	void OnLevelWasLoaded( int level ) {
-		//Debug.Log("On Level was loaded");
+		Debug.Log("On Level was loaded");
 		StartCoroutine( EndLoading() );
 	}
 
@@ -243,7 +243,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	System.Collections.IEnumerator EndLoading() {
-		//Debug.Log( "EndLoading" );
+		Debug.Log( "EndLoading" );
 
 		yield return 0;
 
