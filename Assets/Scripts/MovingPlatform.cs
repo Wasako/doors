@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[ExecuteInEditMode]
 public class MovingPlatform : MonoBehaviour {
 
     public Vector3 DeltaTargetPosition = Vector3.zero;
@@ -14,34 +15,61 @@ public class MovingPlatform : MonoBehaviour {
     Vector3 PlayerLocationOnPlatform;
     float dis = 0f;
     Vector3 PlayerScale = Vector3.zero;
+	public Transform offset;
+	public bool useTarget = true;
+	public Vector3 EndPosition;
 
-
-    void Start()
+    void Awake()
     {
+		if( !Application.isPlaying ) {
+			return;
+		}
         startTime = 0f;
         StartingPosition = transform.position;
-        JourneyLength = Vector2.Distance(StartingPosition, StartingPosition + DeltaTargetPosition);
+		if( offset != null && useTarget ) {
+			EndPosition = this.offset.position;
+		} else {
+			EndPosition = StartingPosition + DeltaTargetPosition;
+		}
+		JourneyLength = Vector2.Distance(StartingPosition, EndPosition);
         StartCoroutine(Movement());
     }
+
+	void Update() {
+		if( !Application.isPlaying && offset!=null && useTarget ) {
+			DeltaTargetPosition = this.offset.position - this.transform.position;
+		}
+	}
 
 
     void OnCollisionEnter(Collision coll)
     {
+		if( !Application.isPlaying ) {
+			return;
+		}
         if (coll.gameObject.tag == "Player") // && coll.gameObject.transform.position.y > gameObject.transform.position.y)
         {
-            if(coll.gameObject.GetComponent<GetSideHit>().ifTop(this.gameObject))
-            coll.gameObject.GetComponent<Move2D>().jumped = false;
+			if( coll.gameObject.GetComponent<GetSideHit>().ifTop(this.gameObject) ) {
+            	coll.gameObject.GetComponent<Move2D>().jumped = false;
+			}
         }
     }
-    void OnCollisionStay(Collision coll)
-    {
-        if (coll.gameObject.tag == "Player")
-        {
+    
+
+	void OnCollisionStay(Collision coll) {
+		if( !Application.isPlaying ) {
+			return;
+		}
+        if (coll.gameObject.tag == "Player") {
 
         }
     }
-    void OnCollisionExit(Collision coll)
-    {
+
+
+    void OnCollisionExit( Collision coll ) {
+		if( !Application.isPlaying ) {
+			return;
+		}
         if (coll.gameObject.tag == "Player")
         {
           //  coll.transform.SetParent(null);
@@ -56,32 +84,32 @@ public class MovingPlatform : MonoBehaviour {
 
     public float fracJourney;
     public float distCovered;
+
+	public float traverse= 0f;
+	public float t = 0f;
+	public float oldTime = 0f;
+
     IEnumerator Movement()
     {
         while(true)
         {
-            yield return new WaitForSeconds(0.005f);
-            distCovered = (Time.time - startTime ) * speed;
-            fracJourney = (distCovered / JourneyLength) - timesDid;
 
-            if (transform.position != DeltaTargetPosition + StartingPosition)
-            {
-                transform.position = Vector3.Lerp(StartingPosition, DeltaTargetPosition + StartingPosition, fracJourney);
-                if(PlayerAttached)
-                {
-                    if( this.transform.position.y - GameObject.FindGameObjectWithTag("Player").transform.position.y == dis)
-                    GameObject.FindGameObjectWithTag("Player").transform.position = transform.position + PlayerLocationOnPlatform;
+			float spd = JourneyLength / speed;
+			traverse += Time.deltaTime / spd;
+			t = ( traverse % 2f );
+			t = t > 1f ?(2f-t) : t;
+			transform.position = Vector3.Lerp( StartingPosition, EndPosition, t );
 
+			if( PlayerAttached ) {
+				Debug.Log("moving platform with player attached");
+				if( this.transform.position.y - GameObject.FindGameObjectWithTag("Player").transform.position.y == dis) {
+					GameObject.FindGameObjectWithTag("Player").transform.position = transform.position + PlayerLocationOnPlatform;
+				}
+			} else {
+			}
+			oldTime = t;
 
-                }
-            }
-            else
-            {
-                timesDid += 1;
-                StartingPosition = transform.position;
-                DeltaTargetPosition *= -1;
-            }
-
+			yield return 0;
         }
     }
 

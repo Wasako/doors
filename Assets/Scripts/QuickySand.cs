@@ -14,7 +14,7 @@ public class QuickySand : MonoBehaviour {
         if (coll.gameObject.tag == "Player")
             coll.gameObject.GetComponent<Move2D>().jumped = false;
 
-        Debug.Log("dsadsadsa");
+		Debug.Log("OnCollisionEnter");
     }
 
 

@@ -12,6 +12,10 @@ namespace UnityStandardAssets.Utility
 
         private void LateUpdate()
         {
+			if(target==null) {
+				Debug.LogError("FollowTarget : No referance in FollowTarget for what to follow - check inspecgtor that a referance to the Player is set.");
+				return;
+			}
             transform.position = target.position + offset;
         }
     }
