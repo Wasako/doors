@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour {
 	public Vector3 EnterOrigin = Vector3.zero;
 	public string EnterOriginName = "";
 
+	int state = 0;
+
     void Awake()
     {
         if (singleton == null)
@@ -55,10 +57,97 @@ public class GameManager : MonoBehaviour {
 	}
     
     void OnLevelWasLoaded() {
-        WearIt();
 		Debug.Log("On Level was loaded");
-		StartCoroutine( EndLoading() );
+        WearIt();
+
+		if(state == 1) {
+			StartCoroutine( EndLoading() );
+		} else if( state == 2 ) {
+			StartCoroutine( EndDie() );
+		}
+		state = 0;
+
     }
+
+
+
+	public void OnPlayerDie() {
+		StartCoroutine( DieImpl() );
+	}
+
+
+	System.Collections.IEnumerator EndDie() {
+
+		var canvas = UINode.GetCanvasGO();
+		if( canvas!=null ) {
+			//Debug.Log("fading in now!");
+			var rawImage = canvas.GetComponentInChildren<UnityEngine.UI.RawImage>(true);
+			if( rawImage!=null ) {
+				//Debug.Log("disabling object...");
+				rawImage.gameObject.SetActive(true);
+
+				var c = Color.black;
+				c.a = 0f;
+				rawImage.color = c;
+
+				//Debug.Log("fading in..");
+				float t = 0f;
+				while( t < 1f ) {
+					//Debug.Log("counting time...");
+					t += Time.deltaTime*2f;
+					if( t > 1f ) t = 1f;
+					c.a = Mathf.SmoothStep(1f,0f, t);
+					rawImage.color = c;
+					yield return 0;
+				}
+
+				rawImage.gameObject.SetActive(false);
+			} else {
+				Debug.LogError("cannot fade in...");
+			}
+		}
+
+		yield return 0;	
+	}
+
+
+	System.Collections.IEnumerator DieImpl(){
+
+		var canvas = UINode.GetCanvasGO();
+		if( canvas!=null ) {
+			//Debug.Log("fading in now!");
+			var rawImage = canvas.GetComponentInChildren<UnityEngine.UI.RawImage>(true);
+			if( rawImage!=null ) {
+				//Debug.Log("disabling object...");
+				rawImage.gameObject.SetActive(true);
+
+				var c = Color.black;
+				c.a = 0f;
+				rawImage.color = c;
+
+				//Debug.Log("fading in..");
+				float t = 0f;
+				while( t < 1f ) {
+					//Debug.Log("counting time...");
+					t += Time.deltaTime*2f;
+					if( t > 1f ) t = 1f;
+					c.a = Mathf.SmoothStep(0f,1f, t);
+					rawImage.color = c;
+					yield return 0;
+				}
+			} else {
+				Debug.LogError("cannot fade in...");
+			}
+		}
+
+		state = 2;
+		yield return 0;
+		UnityEngine.SceneManagement.SceneManager.LoadScene("crispy_hub");
+
+		//StartCoroutine( EndLoading() );
+
+	}
+
 
 	public static GameManager GetSingleton() {
 		GameManager ret = singleton;
@@ -68,6 +157,7 @@ public class GameManager : MonoBehaviour {
 		}
 		return ret;
 	}
+
 
     public void AddStuff(string name)
     {
@@ -207,6 +297,7 @@ public class GameManager : MonoBehaviour {
 		yield return new WaitForSeconds(0.25f);
 
 		yield return  0;
+		state = 1;
 		UnityEngine.SceneManagement.SceneManager.LoadScene(name);
 		//Debug.Log("done loading", this.gameObject);
 		yield return  0;
