@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Experiment
-  m_Shader: {fileID: 4800000, guid: 760e0ecb17cc7dd4aa168ae08f1cfe42, type: 3}
+  m_Shader: {fileID: 4800000, guid: ae7d7756b42113340b4be9f468393cda, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_CustomRenderQueue: 2000
