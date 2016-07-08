@@ -65,6 +65,7 @@ public class GameManager : MonoBehaviour {
 
     public void AddStuff(string name)
     {
+        print("jebie to");
         for (int i = 0; i < thingsNames.Count; i++) {
             if (thingsNames[i].ToString() == name.ToString())
             {
