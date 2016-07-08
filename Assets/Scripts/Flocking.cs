@@ -11,6 +11,7 @@ public class Flocking : MonoBehaviour {
     public float flockingRadius = 100;
     Vector2 velocityVector;
     public float speed = 1;
+    public float flockingRadiusLeader = 5;
     public float alignmentWeight, cohesionWeight, separationWeight, alignmentWeightLeader, cohesionWeightLeader, separationWeightLeader;
     void Start () {
         leader = GameObject.FindGameObjectWithTag("Player");
@@ -164,13 +165,14 @@ public class Flocking : MonoBehaviour {
         Vector2 separationVector = new Vector2(0, 0);
         agentArray = GameObject.FindGameObjectsWithTag("bird");
 
-        
-           
-                separationVector.x += leader.transform.position.x - transform.position.x;
-                separationVector.y += leader.transform.position.y - transform.position.y;
-                neighbourCount++;
-           
 
+        if ((Vector2.Distance(transform.position, leader.transform.position) < flockingRadiusLeader))
+        {
+            separationVector.x += leader.transform.position.x - transform.position.x;
+            separationVector.y += leader.transform.position.y - transform.position.y;
+            neighbourCount++;
+
+        }
 
         
         separationVector.Normalize();
