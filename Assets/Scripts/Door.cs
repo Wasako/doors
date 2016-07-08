@@ -5,13 +5,10 @@ using System.Collections;
 [ExecuteInEditMode]
 public class Door : MonoBehaviour {
 	public bool Over = false;
-
 	public string DoorLeadsTo = "";
-
 	public bool useEnterOrigin = false;
 	public Vector3 EnterOrigin = Vector3.zero;
 	public string EnterOriginName = "";
-
 	public SpriteRenderer graphics;
 	public bool isExitOnly = false;
 
@@ -21,7 +18,6 @@ public class Door : MonoBehaviour {
 			return DoorLeadsTo == "" || DoorLeadsTo == "ExitOnly";
 		}
 	}
-
 
 
 	public Vector3 EnterOriginPos {
@@ -54,7 +50,7 @@ public class Door : MonoBehaviour {
 
 	public void OnPlayerEnteredThroughThisDoorJustNow() {
 		Debug.Log("WAAAY! OnPlayerEnteredThroughThisDoorJustNow");
-		if(graphics!=null){
+		if( graphics!=null ) {
 			graphics.enabled=true;
 			graphics.color = Color.white;
 			if( ExitOnly ) {
@@ -85,7 +81,7 @@ public class Door : MonoBehaviour {
 		}
 		isTransitionalDoor = false;
 		Over=false;
-		if(graphics==null)
+		if( graphics==null )
 			graphics = this.gameObject.GetComponentInChildren<SpriteRenderer>( true );
 	}
 
@@ -122,15 +118,18 @@ public class Door : MonoBehaviour {
 		enabled=false;
 		GameManager.GetSingleton().StartLoading( this.DoorLeadsTo, this.EnterOrigin, this.EnterOriginName, this.useEnterOrigin );
 	}
-	
+
+
 	void OnDestroy() {
 		if( isTransitionalDoor ) {
-			//Debug.LogError("Destroyyed transitional door : " + this.name );
+			//Debug.Log("Destroyed transitional door : " + this.name );
 		}
 	}
 
+
 	[HideInInspector]
 	public bool isTransitionalDoor = false;
+
 
 	void OnTriggerEnter(Collider coll) {
 		if( !Application.isPlaying ) {
@@ -145,13 +144,11 @@ public class Door : MonoBehaviour {
 	}
 
 
-	void OnTriggerExit(Collider  coll)
-	{
+	void OnTriggerExit( Collider  coll ) {
 		if( !Application.isPlaying ) {
 			return;
 		}
-		if (coll.gameObject.tag == "Player")
-		{
+		if (coll.gameObject.tag == "Player") {
 			Over=false;
 		}
 	}
