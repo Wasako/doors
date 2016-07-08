@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour {
         }
         else
         {
-            Destroy(gameObject);
+			Destroy(gameObject);
         }
         print(singleton);
         DontDestroyOnLoad(this.gameObject);
@@ -54,6 +54,12 @@ public class GameManager : MonoBehaviour {
 
 	}
     
+    void OnLevelWasLoaded() {
+        WearIt();
+		Debug.Log("On Level was loaded");
+		StartCoroutine( EndLoading() );
+    }
+
 	public static GameManager GetSingleton() {
 		GameManager ret = singleton;
 		if( ret==null ) {
@@ -65,7 +71,6 @@ public class GameManager : MonoBehaviour {
 
     public void AddStuff(string name)
     {
-        print("jebie to");
         for (int i = 0; i < thingsNames.Count; i++) {
             if (thingsNames[i].ToString() == name.ToString())
             {
@@ -206,12 +211,7 @@ public class GameManager : MonoBehaviour {
 		//Debug.Log("done loading", this.gameObject);
 		yield return  0;
 	}
-
-
-	void OnLevelWasLoaded( int level ) {
-		//Debug.Log("On Level was loaded");
-		StartCoroutine( EndLoading() );
-	}
+		
 
 	public Vector3 EnterOriginPos {
 		get {
@@ -240,7 +240,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	System.Collections.IEnumerator EndLoading() {
-		//Debug.Log( "EndLoading" );
+		Debug.Log( "EndLoading" );
 
 		yield return 0;
 

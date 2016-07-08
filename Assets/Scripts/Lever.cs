@@ -52,7 +52,7 @@ public class Lever : MonoBehaviour {
 
         if(canChange )
         {
-            if(Input.GetKeyDown(KeyCode.E))
+			if(Input.GetKeyDown(KeyCode.UpArrow))
             ReverseTheGravity();
         }
     }

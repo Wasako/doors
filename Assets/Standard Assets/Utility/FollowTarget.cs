@@ -12,7 +12,13 @@ namespace UnityStandardAssets.Utility
 
         private void LateUpdate()
         {
-			if(target==null) {
+			if(target==null) {	
+				var go = GameObject.Find("Player");
+				if(go!=null ) {
+					target = go.transform;
+					return;
+				}
+				//target = Move2D.Player.transform;
 				Debug.LogError("FollowTarget : No referance in FollowTarget for what to follow - check inspecgtor that a referance to the Player is set.");
 				return;
 			}
