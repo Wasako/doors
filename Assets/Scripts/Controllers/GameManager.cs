@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour {
     public List<string> playerThings;
     public GameObject camera;
 
-    void Avake()
+    void Awake()
     {
         if (singleton == null)
         {
