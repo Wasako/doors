@@ -23,7 +23,7 @@ public class Die : MonoBehaviour {
         }
         else if (other.tag == "Player")
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+			GameManager.GetSingleton().OnPlayerDie();
         }
     }
 
