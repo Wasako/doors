@@ -49,10 +49,6 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	    
-        if(Input.GetKeyDown(KeyCode.Escape)) {
-            BlackScreen();
-        }
-
 	}
 
     public void AddStuff(string name)
@@ -74,6 +70,19 @@ public class GameManager : MonoBehaviour {
             print("Cool mother fucker! You win!");
         }
 
+    }
+
+    public bool IsStuffOwned(string String)
+    {
+
+        for (int i = 0; i < playerThings.Count; i++)
+        {
+            if (playerThings[i] == String)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     void Save() {
@@ -100,11 +109,6 @@ public class GameManager : MonoBehaviour {
     public void WearIt()
     {
         //Trigger or something?
-    }
-
-    public void BlackScreen()
-    {
-        camera.SetActive(!camera.activeSelf);
     }
 
 }

@@ -6,6 +6,10 @@ public class Bodypart : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        if (GameManager.singleton.IsStuffOwned(bodyName))
+        {
+            Destroy(gameObject);
+        }
 	
 	}
 	
