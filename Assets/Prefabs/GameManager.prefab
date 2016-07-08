@@ -123,10 +123,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxBodypart: 7
   thingsNames:
-  - Hand
+  - LeftLeg
+  - RightLeg
   - Head
-  - Penis
-  - Leg
+  - LeftArm
+  - RightArm
+  - Chest
+  - Heart
   playerThings: []
   camera: {fileID: 198694}
 --- !u!124 &12475738
