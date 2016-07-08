@@ -190,15 +190,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 429776, guid: f319225ed13091040bf779e78575c569, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.0011549627
       objectReference: {fileID: 0}
     - target: {fileID: 429776, guid: f319225ed13091040bf779e78575c569, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.99999934
       objectReference: {fileID: 0}
     - target: {fileID: 429776, guid: f319225ed13091040bf779e78575c569, type: 2}
       propertyPath: m_RootOrder
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 429776, guid: f319225ed13091040bf779e78575c569, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0.13239999
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f319225ed13091040bf779e78575c569, type: 2}
@@ -421,6 +425,41 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11451372, guid: e3c6c2bd5f9efa449bc935b31d6773c1, type: 2}
+      propertyPath: headSleepwalker
+      value: 
+      objectReference: {fileID: 21300000, guid: c2672272e10018a438b6e3a97999f1ca,
+        type: 3}
+    - target: {fileID: 11451372, guid: e3c6c2bd5f9efa449bc935b31d6773c1, type: 2}
+      propertyPath: chestSleepwalker
+      value: 
+      objectReference: {fileID: 21300000, guid: ef7f0406d2f99bf40949f85d2ba3bc9d,
+        type: 3}
+    - target: {fileID: 11451372, guid: e3c6c2bd5f9efa449bc935b31d6773c1, type: 2}
+      propertyPath: heartSleepwalker
+      value: 
+      objectReference: {fileID: 21300000, guid: 678b15aeaa1b2ab418f144dcc80ed392,
+        type: 3}
+    - target: {fileID: 11451372, guid: e3c6c2bd5f9efa449bc935b31d6773c1, type: 2}
+      propertyPath: leftArmSleepwalker
+      value: 
+      objectReference: {fileID: 21300000, guid: ed91b4e6a50414141bf9a651ec3fbff9,
+        type: 3}
+    - target: {fileID: 11451372, guid: e3c6c2bd5f9efa449bc935b31d6773c1, type: 2}
+      propertyPath: lowerLegSleepwalker
+      value: 
+      objectReference: {fileID: 21300000, guid: 033983b6de7f14e44ac98ad80d6269d7,
+        type: 3}
+    - target: {fileID: 11451372, guid: e3c6c2bd5f9efa449bc935b31d6773c1, type: 2}
+      propertyPath: rightArmSleepwalker
+      value: 
+      objectReference: {fileID: 21300000, guid: 939c7cffca91aba419f8b8f2a5fdf589,
+        type: 3}
+    - target: {fileID: 11451372, guid: e3c6c2bd5f9efa449bc935b31d6773c1, type: 2}
+      propertyPath: upperLegSleepwalker
+      value: 
+      objectReference: {fileID: 21300000, guid: 0d482bbcb85ce46459b063b6d8a3d32d,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e3c6c2bd5f9efa449bc935b31d6773c1, type: 2}
   m_IsPrefabParent: 0
