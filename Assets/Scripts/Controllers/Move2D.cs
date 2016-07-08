@@ -27,6 +27,22 @@ public class Move2D : MonoBehaviour
 	}
 
     public Animator animator;
+    public SpriteRenderer head;
+    public SpriteRenderer leftArm;
+    public SpriteRenderer rightArm;
+    public SpriteRenderer chest;
+    public SpriteRenderer leftLowerLeg;
+    public SpriteRenderer leftUpperLeg;
+    public SpriteRenderer rightLowerLeg;
+    public SpriteRenderer rightUpperLeg;
+    public SpriteRenderer heart;
+    public Sprite headSleepwalker;
+    public Sprite leftArmSleepwalker;
+    public Sprite rightArmSleepwalker;
+    public Sprite chestSleepwalker;
+    public Sprite upperLegSleepwalker;
+    public Sprite lowerLegSleepwalker;
+    public Sprite heartSleepwalker;
 
 	public GetSideHit.HitDirection hitDirUp = GetSideHit.HitDirection.Top;
 

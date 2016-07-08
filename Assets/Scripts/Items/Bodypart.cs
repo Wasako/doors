@@ -6,9 +6,14 @@ public class Bodypart : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        if (GameManager.GetSingleton().IsStuffOwned(bodyName))
+
+        if (GameManager.singleton)
         {
-            Destroy(gameObject);
+            bool isStuffTaken = GameManager.singleton.IsStuffOwned(bodyName);
+            if (isStuffTaken)
+            {
+                Destroy(gameObject);
+            }
         }
 	
 	}
@@ -22,7 +27,7 @@ public class Bodypart : MonoBehaviour {
     {
         if (other.tag == "Player")
         {
-            GameManager.GetSingleton().AddStuff(bodyName);
+            GameManager.singleton.AddStuff(bodyName);
             Destroy(this.gameObject);
         }
     }

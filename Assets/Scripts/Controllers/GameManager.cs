@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour {
     static public GameManager singleton;
+    public GameManager singletonTest;
     public int maxBodypart;
     int actualParts = 0;
     public List<string> thingsNames = new List<string>(7);
@@ -15,7 +16,7 @@ public class GameManager : MonoBehaviour {
 	public Vector3 EnterOrigin = Vector3.zero;
 	public string EnterOriginName = "";
 
-    void Avake()
+    void Awake()
     {
         if (singleton == null)
         {
@@ -29,26 +30,18 @@ public class GameManager : MonoBehaviour {
         {
             Destroy(gameObject);
         }
+        print(singleton);
         DontDestroyOnLoad(this.gameObject);
         Load();
-
     }
 
 	// Use this for initialization
 	void Start () {
-        if(singleton == null) {
-            singleton = this;
-        }else if(singleton == this) {
-
-        } else {
-            Destroy(gameObject);
-        }
         maxBodypart = thingsNames.Count;
         playerThings = new List<string>(thingsNames.Count);
         for(int i = 0; i < thingsNames.Count; i++) {
             playerThings.Add("");
         }
-        Load();
 
 	}
 	
@@ -73,13 +66,11 @@ public class GameManager : MonoBehaviour {
     public void AddStuff(string name)
     {
         for (int i = 0; i < thingsNames.Count; i++) {
-
-            print("jebaniutcy");
-            if (thingsNames[i] == name)
+            if (thingsNames[i].ToString() == name.ToString())
             {
-                print(thingsNames.Count + " " + playerThings.Count);
-                if (playerThings[i] != name)
+                if (playerThings[i].ToString ()!= name.ToString())
                 {
+                    playerThings[i] = name;
                     actualParts++;
                     WearIt();
                     Save();
@@ -89,7 +80,8 @@ public class GameManager : MonoBehaviour {
 
         if (actualParts == thingsNames.Count)
         {
-            print("Cool mother fucker! You win!");
+            BlackScreen();
+            Time.timeScale = 0;
         }
 
     }
@@ -99,6 +91,7 @@ public class GameManager : MonoBehaviour {
 
         for (int i = 0; i < playerThings.Count; i++)
         {
+            print(playerThings[i]+" "+String);
             if (playerThings[i] == String)
             {
                 return true;
@@ -130,7 +123,36 @@ public class GameManager : MonoBehaviour {
 
     public void WearIt()
     {
-        //Trigger or something?
+        for (int i = 0; i < thingsNames.Count; i++ )
+        {
+            switch(playerThings[i]) {
+                case "Head":
+                    Move2D.Player.head.sprite = Move2D.Player.headSleepwalker;
+                    break;
+                case "Chest":
+                    Move2D.Player.chest.sprite = Move2D.Player.chestSleepwalker;
+                    break;
+                case "Heart":
+                    Move2D.Player.heart.sprite = Move2D.Player.heartSleepwalker;
+                    break;
+                case "LeftLeg":
+                    Move2D.Player.leftUpperLeg.sprite = Move2D.Player.upperLegSleepwalker;
+                    Move2D.Player.leftLowerLeg.sprite = Move2D.Player.lowerLegSleepwalker;
+                    break;
+                case "RightLeg":
+                    Move2D.Player.rightUpperLeg.sprite = Move2D.Player.upperLegSleepwalker;
+                    Move2D.Player.rightLowerLeg.sprite = Move2D.Player.lowerLegSleepwalker;
+                    break;
+                case "LeftArm":
+                    Move2D.Player.leftArm.sprite = Move2D.Player.leftArmSleepwalker;
+                    break;
+                case "RightArm":
+                    Move2D.Player.rightArm.sprite = Move2D.Player.rightArmSleepwalker;
+                    break;
+                default:
+                    break;
+            }
+        }
     }
     
     public void BlackScreen()
