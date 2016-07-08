@@ -13,7 +13,7 @@ public class Flocking : MonoBehaviour {
     public float speed = 1;
     public float alignmentWeight, cohesionWeight, separationWeight, alignmentWeightLeader, cohesionWeightLeader, separationWeightLeader;
     void Start () {
-        leader = GameObject.FindGameObjectWithTag("leader");
+        leader = GameObject.FindGameObjectWithTag("Player");
 	}
 	
 	// Update is called once per frame
@@ -126,9 +126,13 @@ public class Flocking : MonoBehaviour {
        
         Vector2 alignmentVector = new Vector2(0, 0);
         agentArray = GameObject.FindGameObjectsWithTag("bird");
-        
-                alignmentVector += leader.GetComponent<Rigidbody2D>().velocity;
-                neighbourCount++;
+        //FOR 2D
+        // alignmentVector += leader.GetComponent<Rigidbody2D>().velocity; THIS IS FOR 2D
+
+
+        alignmentVector.x += leader.GetComponent<Rigidbody>().velocity.x;
+        alignmentVector.y += leader.GetComponent<Rigidbody>().velocity.y;
+        neighbourCount++;
                 // Debug.Log("compute alighment");
           
 
@@ -159,9 +163,8 @@ public class Flocking : MonoBehaviour {
         int neighbourCount = 0;
         Vector2 separationVector = new Vector2(0, 0);
         agentArray = GameObject.FindGameObjectsWithTag("bird");
-     
 
-
+        
            
                 separationVector.x += leader.transform.position.x - transform.position.x;
                 separationVector.y += leader.transform.position.y - transform.position.y;
