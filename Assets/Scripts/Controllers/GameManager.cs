@@ -72,15 +72,18 @@ public class GameManager : MonoBehaviour {
 
     public void AddStuff(string name)
     {
-        for (int i = 0; i < thingsNames.Count; i++)
-        {
+        for (int i = 0; i < thingsNames.Count; i++) {
+
+            print("jebaniutcy");
             if (thingsNames[i] == name)
             {
                 print(thingsNames.Count + " " + playerThings.Count);
-                playerThings[i] = name;
-                actualParts++;
-                WearIt();
-                Save();
+                if (playerThings[i] != name)
+                {
+                    actualParts++;
+                    WearIt();
+                    Save();
+                }
             }
         }
 
