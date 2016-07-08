@@ -253,7 +253,8 @@ public class GameManager : MonoBehaviour {
     
     public void BlackScreen()
     {
-        camera.SetActive(!camera.activeSelf);
+		//f(camera!=nu
+       // camera.SetActive(!camera.activeSelf);
     }
 
 	public void StartLoading(string doorLeadsTo, Vector3 enterOrigin, string enterOriginName, bool _useEnterOrigin ){
