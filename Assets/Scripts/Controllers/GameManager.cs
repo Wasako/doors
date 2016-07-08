@@ -56,6 +56,8 @@ public class GameManager : MonoBehaviour {
     
     void OnLevelWasLoaded() {
         WearIt();
+		Debug.Log("On Level was loaded");
+		StartCoroutine( EndLoading() );
     }
 
 	public static GameManager GetSingleton() {
@@ -209,12 +211,7 @@ public class GameManager : MonoBehaviour {
 		//Debug.Log("done loading", this.gameObject);
 		yield return  0;
 	}
-
-
-	void OnLevelWasLoaded( int level ) {
-		Debug.Log("On Level was loaded");
-		StartCoroutine( EndLoading() );
-	}
+		
 
 	public Vector3 EnterOriginPos {
 		get {
