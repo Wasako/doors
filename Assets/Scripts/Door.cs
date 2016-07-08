@@ -13,6 +13,7 @@ public class Door : MonoBehaviour {
 	public string EnterOriginName = "";
 
 	public SpriteRenderer graphics;
+	public bool isExitOnly = false;
 
 
 	public bool ExitOnly {
@@ -29,7 +30,7 @@ public class Door : MonoBehaviour {
 				if( !string.IsNullOrEmpty(EnterOriginName) ) {
 					var go = GameObject.Find(""+EnterOriginName);
 					if(go==null){
-						Debug.LogError( "Error cannot find object :" + EnterOriginName + " falling back on vector : " + EnterOrigin);
+						Debug.Log( "Error cannot find object :" + EnterOriginName + " falling back on vector : " + EnterOrigin);
 					} else {
 						return go.transform.position;
 					}
@@ -52,16 +53,19 @@ public class Door : MonoBehaviour {
 
 
 	public void OnPlayerEnteredThroughThisDoorJustNow() {
-		Debug.LogError("WAAAY! OnPlayerEnteredThroughThisDoorJustNow");
-		graphics.enabled=true;
-		graphics.color = Color.white;
-		if( ExitOnly ) {
-			StartCoroutine( FadeOutDoor() );
+		Debug.Log("WAAAY! OnPlayerEnteredThroughThisDoorJustNow");
+		if(graphics!=null){
+			graphics.enabled=true;
+			graphics.color = Color.white;
+			if( ExitOnly ) {
+				StartCoroutine( FadeOutDoor() );
+			}
 		}
 	}
 
 
 	IEnumerator FadeOutDoor(){
+		Debug.Log("Fade out door - its an exit only");
 		var c = graphics.color;
 		float t = 0;
 		yield return 0;
@@ -79,128 +83,62 @@ public class Door : MonoBehaviour {
 		if( !Application.isPlaying ) {
 			return;
 		}
+		isTransitionalDoor = false;
 		Over=false;
+		if(graphics==null)
+			graphics = this.gameObject.GetComponentInChildren<SpriteRenderer>( true );
 	}
 
 
 	void Update() {
 		if( !Application.isPlaying ) {
-			var comps = this.name.Split( new char[]{':'} );
-			if( comps.Length == 3 ) {
-				if( comps[0] == "Door" && comps[1] == "To" ) {
-					DoorLeadsTo = comps[2];
-				} else if( comps[0] == "Door" && comps[1] == "From" ) {
-					DoorLeadsTo = "ExitOnly";
+			if( DoorLeadsTo == "ExitOnly" ) {
+				isExitOnly = true;
+			}
+			if( isExitOnly ) {
+				DoorLeadsTo = "ExitOnly";
+			} else {
+				var comps = this.name.Split( new char[]{':'} );
+				if( comps.Length == 3 ) {
+					if( comps[0] == "Door" && comps[1] == "To" ) {
+						DoorLeadsTo = comps[2];
+					} else if( comps[0] == "Door" && comps[1] == "From" ) {
+						DoorLeadsTo = comps[2];
+						//DoorLeadsTo = "ExitOnly";
+					}
 				}
 			}
 			return;
 		}
 		if( ExitOnly ) return;
-		if( Input.GetKeyDown(KeyCode.UpArrow) && Over ) {
-			Debug.Log("next level");
-			StartCoroutine( SetNextLevel(DoorLeadsTo) );
+		if( (Input.GetKeyDown(KeyCode.UpArrow)||  Input.GetKeyDown(KeyCode.W)) && Over && this.gameObject.name!="TRANSITIONAL DOOR" ) {
+			Debug.Log("Door; next level");
+			openDoor();
 		}
 	}
 
 
-	IEnumerator SetNextLevel( string name ) {
-		Move2D.Player.enabled=false;
-		var canvas = GameObject.Find("Canvas");
-		if(canvas!=null ) {
-			var rawImage = canvas.GetComponentInChildren<UnityEngine.UI.RawImage>(true);
-			if( rawImage!=null ) {
-				rawImage.gameObject.SetActive(true);
-
-				var c = Color.black;
-				c.a = 0f;
-				rawImage.color = c;
-
-				float t = 0f;
-				while( t < 1f ) {
-					t += Time.deltaTime*2f;
-					if( t > 1f ) t = 1f;
-					c.a = Mathf.SmoothStep(0,1f, t);
-					rawImage.color = c;
-					yield return 0;
-				}
-
-			} else {
-				
-			}
-
+	void openDoor() {
+		enabled=false;
+		GameManager.GetSingleton().StartLoading( this.DoorLeadsTo, this.EnterOrigin, this.EnterOriginName, this.useEnterOrigin );
+	}
+	
+	void OnDestroy() {
+		if( isTransitionalDoor ) {
+			//Debug.LogError("Destroyyed transitional door : " + this.name );
 		}
-
-		Debug.LogError("Loading level");
-		GameObject.DontDestroyOnLoad(this.gameObject);
-		yield return  0;
-		UnityEngine.SceneManagement.SceneManager.LoadScene(name);
-		Debug.LogError("done loading", this.gameObject);
-		yield return  0;
-		Debug.LogError("next frame.");
-
-		if( useEnterOrigin ) {
-			Debug.LogError("set position to GO pos.");
-			Move2D.Player.transform.position = EnterOriginPos;
-			if( EnterAtPosBasedOnGO ) {
-				var go_door =  GameObject.Find(EnterOriginName);
-				if( go_door.GetComponent<Door>() != null ) {
-					go_door.GetComponent<Door>().OnPlayerEnteredThroughThisDoorJustNow();
-					Move2D.Player.enabled=true;
-				}
-			}
-		}
-		yield return  0;
 	}
 
-	void OnLevelWasLoaded(int level) {
-		Debug.Log("On Level was loaded");
-		StartCoroutine( EndLoading() );
+	[HideInInspector]
+	public bool isTransitionalDoor = false;
 
-	}
-
-
-	IEnumerator EndLoading() {
-		var canvas = GameObject.Find("Canvas");
-		if( canvas!=null ) {
-			Debug.LogError("fading in now!");
-			var rawImage = canvas.GetComponentInChildren<UnityEngine.UI.RawImage>(true);
-			if( rawImage!=null ) {
-				Debug.Log("disabling object...");
-				rawImage.gameObject.SetActive(true);
-
-				var c = Color.black;
-				c.a = 0f;
-				rawImage.color = c;
-
-				Debug.Log("fading in..");
-				float t = 0f;
-				while( t < 1f ) {
-					Debug.Log("counting time...");
-					t += Time.deltaTime*2f;
-					if( t > 1f ) t = 1f;
-					c.a = Mathf.SmoothStep(1f,0f, t);
-					rawImage.color = c;
-					yield return 0;
-				}
-
-				rawImage.gameObject.SetActive(false);
-			} else {
-				Debug.Log("cannot fade in...");
-			}
-		}
-
-		GameObject.DestroyObject(this.gameObject);	}
-
-
-
-	void OnTriggerEnter(Collider coll)
-	{
+	void OnTriggerEnter(Collider coll) {
 		if( !Application.isPlaying ) {
 			return;
 		}
-		Debug.Log("moved over");
+		Debug.Log("Door: moved over");
 		if( coll.gameObject.tag == "Player"    ) {
-			Debug.Log("moved over");
+			Debug.Log("Door: moved over");
 			Over=true;
 			//minDis = (coll.gameObject.transform.position - gameObject.transform.position).magnitude;
 		}
