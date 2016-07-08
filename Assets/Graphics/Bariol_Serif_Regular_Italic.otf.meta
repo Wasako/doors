@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: d1196bec4ced943b0a823960e3765600
 timeCreated: 1468019745
 licenseType: Pro
+=======
+guid: 2d0507b8a06c3064ba4e45a57c39bac0
+timeCreated: 1468018370
+licenseType: Free
+>>>>>>> 4707e97650ce54354918e3ac21c626339f71b626
 TrueTypeFontImporter:
   serializedVersion: 3
   fontSize: 16
