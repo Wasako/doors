@@ -258,6 +258,7 @@ public class GameManager : MonoBehaviour {
     }
 
 	public void StartLoading(string doorLeadsTo, Vector3 enterOrigin, string enterOriginName, bool _useEnterOrigin ){
+		Debug.LogError ("loading " + doorLeadsTo);
 		DoorLeadsTo = doorLeadsTo;
 		useEnterOrigin = _useEnterOrigin;
 		this.EnterOrigin = enterOrigin;
