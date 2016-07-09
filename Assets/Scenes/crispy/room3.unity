@@ -280,7 +280,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
 --- !u!114 &71948572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1290,52 +1290,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 981f3be55cf9ac847a442cff94afa69d, type: 2}
   m_IsPrefabParent: 0
---- !u!1001 &506325562
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 482962, guid: d2bae664cfbfd76459cfb5707609d22f, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 3.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 482962, guid: d2bae664cfbfd76459cfb5707609d22f, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -6.96
-      objectReference: {fileID: 0}
-    - target: {fileID: 482962, guid: d2bae664cfbfd76459cfb5707609d22f, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0.21750832
-      objectReference: {fileID: 0}
-    - target: {fileID: 482962, guid: d2bae664cfbfd76459cfb5707609d22f, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 482962, guid: d2bae664cfbfd76459cfb5707609d22f, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 482962, guid: d2bae664cfbfd76459cfb5707609d22f, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 482962, guid: d2bae664cfbfd76459cfb5707609d22f, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 482962, guid: d2bae664cfbfd76459cfb5707609d22f, type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 11492852, guid: d2bae664cfbfd76459cfb5707609d22f, type: 2}
-      propertyPath: bodyName
-      value: RightLeg
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: d2bae664cfbfd76459cfb5707609d22f, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1001 &576500654
 Prefab:
   m_ObjectHideFlags: 0
@@ -2252,7 +2206,7 @@ Transform:
   - {fileID: 1334899088}
   - {fileID: 396466399}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
 --- !u!1001 &1172775265
 Prefab:
   m_ObjectHideFlags: 0

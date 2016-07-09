@@ -5129,6 +5129,52 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ad6ff00077ff9884fb1a463fe9b169a8, type: 2}
   m_IsPrefabParent: 0
+--- !u!1001 &1659774856
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 482962, guid: d2bae664cfbfd76459cfb5707609d22f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 15.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 482962, guid: d2bae664cfbfd76459cfb5707609d22f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 10.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 482962, guid: d2bae664cfbfd76459cfb5707609d22f, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.21750832
+      objectReference: {fileID: 0}
+    - target: {fileID: 482962, guid: d2bae664cfbfd76459cfb5707609d22f, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 482962, guid: d2bae664cfbfd76459cfb5707609d22f, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 482962, guid: d2bae664cfbfd76459cfb5707609d22f, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 482962, guid: d2bae664cfbfd76459cfb5707609d22f, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 482962, guid: d2bae664cfbfd76459cfb5707609d22f, type: 2}
+      propertyPath: m_RootOrder
+      value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 11492852, guid: d2bae664cfbfd76459cfb5707609d22f, type: 2}
+      propertyPath: bodyName
+      value: RightLeg
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: d2bae664cfbfd76459cfb5707609d22f, type: 2}
+  m_IsPrefabParent: 0
 --- !u!4 &1702992639 stripped
 Transform:
   m_PrefabParentObject: {fileID: 484092, guid: e3c6c2bd5f9efa449bc935b31d6773c1, type: 2}
