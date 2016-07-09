@@ -42,17 +42,17 @@ using System;
             float topDistance = Math.Abs(borderTop.transform.position.y - t.y);
             float leftDistance = Math.Abs(borderLeft.transform.position.x - t.x);
             float rightDistance = Math.Abs(borderRight.transform.position.x - t.x);
-            
-            if (borderTop.Visible && topDistance< halfHeight)
-                transform.position = new Vector3(nextX, borderTop.transform.position.y - halfHeight , nextZ);
-            else if (borderBottom.Visible && bottomDistance< halfHeight)
-                transform.position = new Vector3(nextX, borderBottom.transform.position.y + halfHeight, nextZ);
-            else if (borderLeft.Visible &&  leftDistance< halfWidth)
-                transform.position = new Vector3(borderLeft.transform.position.x + halfWidth, nextY, nextZ);
-            else if (borderRight.Visible && rightDistance< halfWidth)
-                transform.position = new Vector3(borderRight.transform.position.x - halfWidth, nextY, nextZ);
-            else
-                transform.position = t + offset;
-        }
+
+        if (borderTop.Visible && topDistance < halfHeight) 
+            transform.position = new Vector3(nextX, borderTop.transform.position.y - halfHeight , nextZ);
+        else if (borderBottom.Visible && bottomDistance < halfHeight) 
+            transform.position = new Vector3(nextX, borderBottom.transform.position.y + halfHeight, nextZ);
+        if (borderLeft.Visible && leftDistance < halfWidth)
+            transform.position = new Vector3(borderLeft.transform.position.x + halfWidth, nextY, nextZ);
+        else if (borderRight.Visible && rightDistance < halfWidth)
+            transform.position = new Vector3(borderRight.transform.position.x - halfWidth, nextY, nextZ);
+        else
+            transform.position = new Vector3(nextX, nextY, nextZ);
+    }
     }
 
