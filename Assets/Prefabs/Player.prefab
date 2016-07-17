@@ -333,7 +333,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 158676}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.057933003, y: 1.1567097, z: 0}
+  m_LocalPosition: {x: 0, y: 0.988, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -493,20 +493,20 @@ MonoBehaviour:
   rightLowerLeg: {fileID: 21222598}
   rightUpperLeg: {fileID: 21289024}
   heart: {fileID: 21212864}
-  headSleepwalker: {fileID: 21300000, guid: 7634050256318ec4b807019fa3d445f7, type: 3}
-  leftArmSleepwalker: {fileID: 21300000, guid: d23a8f172b75551478bf37b9bda1b0f8, type: 3}
-  rightArmSleepwalker: {fileID: 21300000, guid: 9f404c62872518249a266d624a2f4806,
+  headSleepwalker: {fileID: 21300000, guid: c2672272e10018a438b6e3a97999f1ca, type: 3}
+  leftArmSleepwalker: {fileID: 21300000, guid: ed91b4e6a50414141bf9a651ec3fbff9, type: 3}
+  rightArmSleepwalker: {fileID: 21300000, guid: 939c7cffca91aba419f8b8f2a5fdf589,
     type: 3}
-  chestSleepwalker: {fileID: 21300000, guid: 47d8da69a4fee274baa00f6970e29826, type: 3}
-  upperLegSleepwalker: {fileID: 21300000, guid: 0c0b1e9f34f6d3145942dd9e67a955e7,
+  chestSleepwalker: {fileID: 21300000, guid: ef7f0406d2f99bf40949f85d2ba3bc9d, type: 3}
+  upperLegSleepwalker: {fileID: 21300000, guid: 0d482bbcb85ce46459b063b6d8a3d32d,
     type: 3}
-  lowerLegSleepwalker: {fileID: 21300000, guid: 11de7502cda38d54d9814145b426cc33,
+  lowerLegSleepwalker: {fileID: 21300000, guid: 033983b6de7f14e44ac98ad80d6269d7,
     type: 3}
-  heartSleepwalker: {fileID: 21300000, guid: 9c459dd48cdbcfe42bc6d1931641a10b, type: 3}
+  heartSleepwalker: {fileID: 21300000, guid: 678b15aeaa1b2ab418f144dcc80ed392, type: 3}
   hitDirUp: 1
   orient: {fileID: 484092}
   power: 8
-  jumpPower: 40
+  jumpPower: 50
   jumpTime: 2
   endJumpTime: 1
   isMoving: 0

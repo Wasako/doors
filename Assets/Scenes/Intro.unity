@@ -379,10 +379,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1194591686}
   m_RootOrder: 1
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -2, y: 0}
-  m_SizeDelta: {x: -235, y: -232}
+  m_AnchorMin: {x: 0.1, y: 0.2}
+  m_AnchorMax: {x: 0.9, y: 0.9}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &347088234
 MonoBehaviour:
@@ -420,7 +420,8 @@ MonoBehaviour:
     and they tell him its because he is ugly. Steve feels scattered and lonely - a
     skeleton of a man. \r\n\r\nCan you help Steve feel at peace with himself and discover
     that he is one with the universe and therefore never truly alone? Even though
-    his parents are fucking assholes."
+    his parents are fucking assholes.\n \nControl buttons:\nmove left - left arrow
+    or a\nmove right - right arrow or d\njump - space\nopen door - up arrow or w\n"
 --- !u!222 &347088235
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -518,10 +519,10 @@ RectTransform:
   - {fileID: 1551169650}
   m_Father: {fileID: 1194591686}
   m_RootOrder: 4
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 10.4999695, y: 94}
-  m_SizeDelta: {x: 276, y: 132}
+  m_AnchorMin: {x: 0.4, y: 0}
+  m_AnchorMax: {x: 0.6, y: 0.15}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.49999994, y: 0.50000006}
 --- !u!114 &400890787
 MonoBehaviour:
@@ -819,10 +820,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1194591686}
   m_RootOrder: 3
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10.5, y: 60.66}
-  m_SizeDelta: {x: 790, y: 551.68}
+  m_AnchorMin: {x: 0.3, y: 0.2}
+  m_AnchorMax: {x: 0.7, y: 0.9}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &880864837
 MonoBehaviour:

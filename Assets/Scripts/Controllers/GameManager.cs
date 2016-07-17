@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
     static public GameManager singleton;
@@ -176,8 +177,8 @@ public class GameManager : MonoBehaviour {
 
         if (actualParts == thingsNames.Count)
         {
-            BlackScreen();
-            Time.timeScale = 0;
+            SceneManager.LoadScene(8);
+            Destroy(this.gameObject);
         }
 
     }
